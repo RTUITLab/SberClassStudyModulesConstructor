@@ -1,0 +1,9 @@
+<button (click)="onClick()">Click</button>
+<p>Clicked {{count}}</p>
+
+<p>array from test</p>
+<div *ngIf="this.testcomp">
+    <p *ngFor="let item of this.testcomp.data">
+        {{item}}
+    </p>
+</div>

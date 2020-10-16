@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TestComponent } from './test/test.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SberClassStudyModulesConstructor';
+
+  count: number = 0;
+  testcomp: TestComponent;
+
+  constructor(testc: TestComponent){
+    this.testcomp=testc;
+  }
+
+  onClick(){
+    this.count++;
+    this.testcomp.addNum(this.count);
+  }
+
 }
