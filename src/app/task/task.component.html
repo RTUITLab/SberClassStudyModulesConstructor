@@ -9,8 +9,8 @@
                     </div>
                 </div>
             </div>
-            <div class="sc-fzpkJw bxxEfB"><input id="b467b430-1052-11eb-819a-7fa426b8f7c7-0" type="text"
-                    placeholder="Например, &quot;Восстанови текст о мореплавателе&quot;" value=""></div>
+            <div class="sc-fzpkJw bxxEfB"><input (focusout)="onFocusOut($event)" (keyup)="onKey($event)" id="task-name" type="text"
+                    placeholder="Например, &quot;Восстанови текст о мореплавателе&quot;" value="{{inputText}}"></div>
         </div>
         <div class="">
             <div class=""><label for="b467b431-1052-11eb-819a-7fa426b8f7c7-0">Теги</label>
