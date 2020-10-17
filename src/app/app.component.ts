@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { dbInteractionService } from 'src/services/db_service/dbInteractionService';
+
 
 @Component({
   selector: 'app-root',
