@@ -1,211 +1,152 @@
 <a routerLink="">Назад</a>
-<div class="" overflow="hidden">
-    <div class=""><span class=""><span id="mainData">Основные данные</span></span> </div>
-    <div class="">
-        <div class="">
-            <div class=""><label for="b467b430-1052-11eb-819a-7fa426b8f7c7-0">Название задания</label>
-                <div class="">
-                    <div>
-                        <div tabindex="0"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="sc-fzpkJw bxxEfB"><input (focusout)="onFocusOut($event)" (keyup)="onKey($event)" id="task-name" type="text"
-                    placeholder="Например, &quot;Восстанови текст о мореплавателе&quot;" value="{{inputText}}"></div>
+<div style="padding: 1%;">
+    <form>
+        <div>
+            <mat-form-field>
+                <mat-label>Название задания</mat-label>
+                <input matInput id="task_name" name="task_name" type="text"
+                    placeholder="Напимер, Восстанови текст о морепродуктах">
+            </mat-form-field>
         </div>
-        <div class="">
-            <div class=""><label for="b467b431-1052-11eb-819a-7fa426b8f7c7-0">Теги</label>
-                <div class="">
-                    <div>
-                        <div tabindex="0"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="">
-                <div class="">
-                    <div class="">
-                        <div class="">Введите тег...</div>
-                        <div class="">
-                            <div class="" style="display: inline-block;"><input autocapitalize="none" autocomplete="off"
-                                    autocorrect="off" id="react-select-3-input" spellcheck="false" tabindex="0"
-                                    type="text" aria-autocomplete="list" value=""
-                                    style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class=""></div>
-                    </div>
-                </div>
-            </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Тэги</mat-label>
+                <input matInput type="text" placeholder="Выберите один" [formControl]="myControl"
+                    [matAutocomplete]="tags">
+                <mat-autocomplete #tags="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
         </div>
-        <div class="">
-            <div class="">
-                <div class=""><label for="b467db40-1052-11eb-819a-7fa426b8f7c7-0">Уровень видимости</label>
-                    <div class="">
-                        <div>
-                            <div tabindex="0"></div>
-                        </div>
-                    </div>
-                </div><button class="" tabindex="0" type="button" data-qa="UIKIT.Button" appearance="secondary"><span
-                        class=""><span class="">Персональный</span></span></button>
-            </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Уровень видимости</mat-label>
+                <mat-select>
+                    <mat-option value="personal">Персональный</mat-option>
+                    <mat-option value="school">Школьный</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
-        <div class="">
-            <div class=""><label for="b4680250-1052-11eb-819a-7fa426b8f7c7-0">Тип задания*</label>
-                <div class="">
-                    <div>
-                        <div tabindex="0"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="styled__RadioGroupStyled-jSbzAc kqTcpE">
-                <fieldset class="">
-                    <div class="" role="radiogroup" aria-label="gender"><label class=""><span class=""
-                                aria-disabled="false"><span class=""><input class="jss15" name="gender2" type="radio"
-                                        value="MOTIVATION">
-                                    <div class="jss16"></div>
-                                </span><span class=""></span></span><span class="">Мотивирующее</span></label><label
-                            class=""><span class="" aria-disabled="false"><span class=""><input class="jss15"
-                                        name="gender2" type="radio" value="TRAINING" checked="">
-                                    <div class="jss16 jss18"></div>
-                                </span><span class=""></span></span><span class="">Учебное</span></label><label
-                            class=""><span class="" aria-disabled="false"><span class=""><input class="jss15"
-                                        name="gender2" type="radio" value="CHECK">
-                                    <div class="jss16"></div>
-                                </span><span class=""></span></span><span class="">Проверочное</span></label> </div>
-                </fieldset>
-            </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Количество попыток</mat-label>
+                <input matInput id="task_attempts" name="task_attempts" type="number" value="3" min="0" max="10">
+            </mat-form-field>
         </div>
-        <div class="">
-            <div class="">
-                <div class=""><label for="b4682960-1052-11eb-819a-7fa426b8f7c7-0">Тип проверки</label>
-                    <div class="">
-                        <div>
-                            <div tabindex="0"></div>
-                        </div>
-                    </div>
-                </div><button class="" tabindex="0" type="button" data-qa="UIKIT.Button" appearance="secondary"
-                    width="300"><span class=""><span class="">Проверка учителем</span></span></button>
-            </div>
-            <div class="">
-                <div class=""><label for="b4685070-1052-11eb-819a-7fa426b8f7c7-0">Количество попыток</label>
-                    <div class="">
-                        <div>
-                            <div tabindex="0"></div>
-                        </div>
-                    </div>
-                </div>
-                <div id="b4685070-1052-11eb-819a-7fa426b8f7c7-0" class="">
-                    <div class="sc-fzpkJw gNTZKL" disabled=""><input type="text" placeholder="" disabled="" value="3">
-                    </div>
-                    <div class="">
-                        <div class="" disabled=""><input type="checkbox" disabled="" name=""
-                                id="unlimitedAttempts"><label>Не ограничено</label></div>
-                    </div>
-                </div>
-            </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Форма работы</mat-label>
+                <mat-select>
+                    <mat-option value="indiv">Индивидуально</mat-option>
+                    <mat-option value="smallg">В малых группах</mat-option>
+                    <mat-option value="couple">В парах</mat-option>
+                    <mat-option value="inschool">В классе</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
-        <div class="">
-            <div class=""><label for="b4685071-1052-11eb-819a-7fa426b8f7c7-0">Форма работы*</label></div><button
-                class="" tabindex="0" type="button" data-qa="UIKIT.Button" appearance="secondary" width="300"><span
-                    class=""><span class="">Индивидуально</span></span></button>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Трудоёмкость</mat-label>
+                <input matInput id="task_hours" name="task_hours" type="number" value="8" min="0" max="24">
+            </mat-form-field>
         </div>
-        <div class="">
-            <div class=""><label for="b4687780-1052-11eb-819a-7fa426b8f7c7-0">Способ выполнения</label>
-                <div class="">
-                    <div>
-                        <div tabindex="0"></div>
-                    </div>
-                </div>
-            </div><button class="" tabindex="0" type="button" data-qa="UIKIT.Button" appearance="secondary"
-                width="300"><span class=""><span class="">Не указано</span></span></button>
+
+        <div>
+            <style>
+                .checkshow {
+                    margin: 0 0 0 0;
+                    padding: 0 0 0 0;
+                }
+            </style>
+            <mat-card>
+                <mat-card-content>
+                    <mat-label>Развитие мягких навыков</mat-label>
+                    <section>
+                        <p class="checkshow">
+                            <mat-checkbox name="soft_skills" value="ch1">Принятие решений</mat-checkbox>
+                        </p>
+                        <p class="checkshow">
+                            <mat-checkbox name="soft_skills" value="ch2">Работа в команде</mat-checkbox>
+                        </p>
+                        <p class="checkshow">
+                            <mat-checkbox name="soft_skills" value="ch3">Управление собой</mat-checkbox>
+                        </p>
+                        <p class="checkshow">
+                            <mat-checkbox name="soft_skills" value="ch4">Креативное мышление</mat-checkbox>
+                        </p>
+                        <p class="checkshow">
+                            <mat-checkbox name="soft_skills" value="ch5">Критическое мышление</mat-checkbox>
+                        </p>
+                        <p class="checkshow">
+                            <mat-checkbox name="soft_skills" value="ch6">Эмоциональный интеллект</mat-checkbox>
+                        </p>
+                        <p class="checkshow">
+                            <mat-checkbox name="soft_skills" value="ch7">Системное мышление</mat-checkbox>
+                        </p>
+                    </section>
+                </mat-card-content>
+            </mat-card>
         </div>
-        <div class="">
-            <div class=""><label for="b4689e90-1052-11eb-819a-7fa426b8f7c7-0">Трудоемкость</label>
-                <div class="">
-                    <div>
-                        <div tabindex="0"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="b4689e90-1052-11eb-819a-7fa426b8f7c7-0" class="">
-                <div class="sc-fzpkJw bxxEfB"><input id="laboriousness" type="text" placeholder="" value="0"></div>
-                <span>минут</span>
-            </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>ФИО автора задания</mat-label>
+                <input matInput id="task_autor" name="task_autor" type="text" placeholder="Название с акка взять">
+            </mat-form-field>
         </div>
-        <div class="">
-            <div class=""><label for="b4689e91-1052-11eb-819a-7fa426b8f7c7-0">Развиваемые мягкие навыки</label>
-                <div class="">
-                    <div>
-                        <div tabindex="0"></div>
-                    </div>
-                </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Лицензия</mat-label>
+                <mat-select>
+                    <mat-option value="CC0">CC0</mat-option>
+                    <mat-option value="BY">BY</mat-option>
+                    <mat-option value="BY-SA">BY-SA</mat-option>
+                    <mat-option value="BY-NC">BY-NC</mat-option>
+                    <mat-option value="BY-NC-SA">BY-NC-SA</mat-option>
+                    <mat-option value="BY-ND">BY-ND</mat-option>
+                    <mat-option value="BY-NC-ND">BY-NC-ND</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Внешние источники информации</mat-label>
+                <input matInput id="task_outsource" name="task_outsource" type="text">
+            </mat-form-field>
+        </div>
+
+        <mat-divider></mat-divider>
+        <div class="notes">
+            <div>
+                <mat-form-field>
+                    <mat-label>Заметки для проверяющего</mat-label>
+                    <textarea matInput id="task_notes_checker" name="task_notes_checker" type="text"></textarea>
+                </mat-form-field>
             </div>
-            <div id="b4689e91-1052-11eb-819a-7fa426b8f7c7-0" class="">
-                <div class="">
-                    <div class="">
-                        <div class=""><input type="checkbox" name="" id="6-Принятие решений"><label>Принятие
-                                решений</label> </div>
-                    </div>
-                    <div class="">
-                        <div class=""><input type="checkbox" name="" id="5-Работа в команде"><label>Работа в
-                                команде</label> </div>
-                    </div>
-                    <div class="">
-                        <div class=""><input type="checkbox" name="" id="3-Управление собой"><label>Управление
-                                собой</label> </div>
-                    </div>
-                    <div class="">
-                        <div class=""><input type="checkbox" name="" id="7-Креативное мышление"><label>Креативное
-                                мышление</label></div>
-                    </div>
-                    <div class="">
-                        <div class=""><input type="checkbox" name="" id="101-Критическое мышление"><label>Критическое
-                                мышление</label></div>
-                    </div>
-                    <div class="">
-                        <div class=""><input type="checkbox" name="" id="8-Эмоциональный интеллект"><label>Эмоциональный
-                                интеллект</label></div>
-                    </div>
-                    <div class="">
-                        <div class=""><input type="checkbox" name="" id="2-Системное мышление"><label>Системное
-                                мышление</label></div>
-                    </div>
-                </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Заметки для учителя</mat-label>
+                    <textarea matInput id="task_notes_teacher" name="task_notes_teacher" type="text"></textarea>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Заметки для ученика</mat-label>
+                    <textarea matInput id="task_notes_student" name="task_notes_student" type="text"></textarea>
+                </mat-form-field>
             </div>
         </div>
-        <div class="">
-            <div class=""><label for="b4689e92-1052-11eb-819a-7fa426b8f7c7-0">ФИО автора</label>
-                <div class="">
-                    <div>
-                        <div tabindex="0"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="sc-fzpkJw bxxEfB"><input id="b4689e92-1052-11eb-819a-7fa426b8f7c7-0" type="text"
-                    placeholder="Например, Иванов Иван Иванович" value="Цифровой Прорыв"></div>
-        </div>
-        <div class="">
-            <div class=""><label for="b468c5a0-1052-11eb-819a-7fa426b8f7c7-0">Лицензия</label>
-                <div class="">
-                    <div>
-                        <div tabindex="0"></div>
-                    </div>
-                </div>
-            </div><button class="" tabindex="0" type="button" data-qa="UIKIT.Button" appearance="secondary"
-                width="300"><span class=""><span class="">CC0</span></span></button>
-        </div>
-        <div class="">
-            <div class=""><label for="b468c5a1-1052-11eb-819a-7fa426b8f7c7-0">Внешние источники информации</label>
-                <div class="">
-                    <div>
-                        <div tabindex="0"></div>
-                    </div>
-                </div>
-            </div>
-            <div height="auto" class=""><textarea id="b468c5a1-1052-11eb-819a-7fa426b8f7c7-0"
-                    placeholder="Вставьте ссылки" style="height: 38px;"></textarea></div>
-        </div>
-    </div>
+
+    </form>
 </div>
