@@ -1,6 +1,6 @@
-<a routerLink="">Назад</a>
+<button mat-raised-button color="primary" routerLink="/dashboard">Назад</button>
 <div style="padding: 1%;">
-  <form [formGroup]="myForm">
+  <form *ngIf="isLoaded" [formGroup]="myForm" >
     <div>
       <mat-form-field>
         <mat-label>Название задания</mat-label>
@@ -196,6 +196,6 @@
     </div>
 
     <button mat-raised-button color="primary"
-            (click)="createTask()">Сохранить изменения</button>
+            (click)="updateTask()">Сохранить изменения</button>
   </form>
 </div>

@@ -1,4 +1,4 @@
-<mat-tab-group mat-align-tabs="center">
+<mat-tab-group mat-align-tabs="center" [selectedIndex]="1">
   <mat-tab label="Модули">
     <ng-template mat-tab-label>
       <mat-icon>category</mat-icon>
@@ -22,7 +22,7 @@
         <mat-icon>grade</mat-icon><p>{{task.level}}.0</p>
         <mat-icon>schedule</mat-icon><p>{{task.task_minutes}} мин</p>
       </mat-card-content>
-      <button mat-raised-button color="primary" [routerLink]="task.id">Редактировать</button>
+      <button mat-raised-button color="primary" routerLink="/tasks/{{task.id}}/edit">Редактировать</button>
     </mat-card>
   </mat-tab>
   <mat-tab>

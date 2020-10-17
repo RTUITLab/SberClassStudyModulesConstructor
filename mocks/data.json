@@ -71,14 +71,14 @@
       "description": "найдие ошибку малоко)"
     },
     {
-      "task_name": "Заучи ненужное",
+      "task_name": "Выучи ненужное)",
       "ch1": true,
       "ch2": true,
       "ch3": true,
       "ch4": true,
-      "ch5": false,
-      "ch6": false,
-      "ch7": false,
+      "ch5": true,
+      "ch6": true,
+      "ch7": true,
       "description": "Выучи выучи выучи",
       "grade": 9,
       "id": 2,
@@ -88,13 +88,13 @@
       "task_author": "Цифровой прорыв",
       "task_minutes": 88,
       "task_license": "CC0",
-      "task_notes_checker": "1",
-      "task_notes_student": "3",
-      "task_notes_teacher": "2",
+      "task_notes_checker": "11",
+      "task_notes_student": "33",
+      "task_notes_teacher": "22",
       "task_outsource": "сыр",
       "task_tags": "Два два",
       "task_type": "indiv",
-      "task_visibility": "school"
+      "task_visibility": "personal"
     }
   ]
 }

@@ -45,4 +45,9 @@ export class dbInteractionService {
             .toPromise()
             .catch((er)=>console.error(er));
     }
+    putData(reqString: string, data: object){
+    return this._http.put(`${this._api}/${reqString}/`, data)
+      .toPromise()
+      .catch((er)=>console.error(er));
+    }
 }
