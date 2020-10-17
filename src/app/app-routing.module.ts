@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: "", component: MainComponentComponent },
   { path: "add-task", component: TaskComponent },
   { path: "add-module", component: AddModuleComponent },
-  { path: "autochecker", component: AutocheckerComponent }
+  { path: "autochecker", component: AutocheckerComponent },
   { path: "dashboard", component: TaskDashboardComponent},
   { path: "comments", component: CommentThreadComponent}
 ];

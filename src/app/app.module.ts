@@ -45,7 +45,7 @@ import { TaskDashboardComponent } from './task-dashboard/task-dashboard.componen
     TaskComponent,
     MainComponentComponent,
     CommentThreadComponent,
-    TaskDashboardComponent
+    TaskDashboardComponent,
     AddModuleComponent,
     ListModulesComponent
   ],
