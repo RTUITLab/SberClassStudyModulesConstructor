@@ -5,7 +5,8 @@
             <mat-form-field>
                 <mat-label>Название задания</mat-label>
                 <input matInput id="task_name" name="task_name" type="text"
-                    placeholder="Напимер, Восстанови текст о морепродуктах">
+                    placeholder="Напимер, Восстанови текст о морепродуктах"
+                       (focusout)="onFocusOut($event)" (keyup)="onKey($event)">
             </mat-form-field>
         </div>
 
@@ -13,7 +14,7 @@
             <mat-form-field>
                 <mat-label>Тэги</mat-label>
                 <input matInput type="text" placeholder="Выберите один" [formControl]="myControl"
-                    [matAutocomplete]="tags">
+                    [matAutocomplete]="tags" >
                 <mat-autocomplete #tags="matAutocomplete">
                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                         {{option}}
@@ -143,7 +144,8 @@
             <div>
                 <mat-form-field>
                     <mat-label>Заметки для ученика</mat-label>
-                    <textarea matInput id="task_notes_student" name="task_notes_student" type="text"></textarea>
+                    <textarea matInput id="task_notes_student" name="task_notes_student" type="text"
+                              (focusout)="onFocusOut($event)" (keyup)="onKey($event)"></textarea>
                 </mat-form-field>
             </div>
         </div>

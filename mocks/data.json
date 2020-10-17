@@ -34,5 +34,25 @@
             "userRole": "mainEditor",
             "message": "Вы призваны к модулю (название)"
         }
+    ],
+    "tasks": [
+      {
+        "id": 0,
+        "subject" : "Математика",
+        "name" : "Сложный пример на арифметику",
+        "grade": 11,
+        "level" : "4.0",
+        "timeConsumption": 30,
+        "description" : "сложите 2+2)"
+      },
+      {
+        "id": 1,
+        "subject" : "Русский язык",
+        "name" : "Найдите орфографическую ошибку",
+        "grade" : 10,
+        "level" : "4.0",
+        "timeConsumption": 40,
+        "description" : "найдие ошибку малоко)"
+      }
     ]
 }

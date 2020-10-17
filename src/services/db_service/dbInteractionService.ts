@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { Notify } from 'src/models/Notify';
 import { User } from 'src/models/user';
-import { environment } from "../../environments/environment";
+import { Task} from '../../models/Task';
+import { environment } from '../../environments/environment';
 
 @NgModule({
   })
@@ -26,6 +27,10 @@ export class dbInteractionService {
     async getNotificationsData():Promise<Notify[]>{
         return await this._http.get<Notify[]>(`${this._api}/notifications`).toPromise<Notify[]>();
     }
+
+  async getAllTasks():Promise<Task[]>{
+    return await this._http.get<Task[]>(`${this._api}/tasks`).toPromise<Task[]>();
+  }
 
     postData(reqString: string, data: object){
         return this._http.post(`${this._api}/${reqString}/`, data)

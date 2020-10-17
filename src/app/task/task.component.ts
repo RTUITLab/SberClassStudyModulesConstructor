@@ -12,7 +12,7 @@ import { FormControl } from '@angular/forms';
 })
 export class TaskComponent implements OnInit {
   myControl = new FormControl();
-  options: string[] = ["Раз раз", "Два два", "Три три"]
+  options: string[] = ["Раз раз", "Два два", "Три три"];
   filteredOptions: Observable<string[]>;
 
   constructor(private http: HttpClient) { }
@@ -29,24 +29,23 @@ export class TaskComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  postSpellCheckerData(data: string): void {
-    this.http.get(environment.spellCheckerAPI + '?text=' + data).subscribe(value => {
-      this.fixSpelling(value);
+  postSpellCheckerData(event: any): void {
+    this.http.get(environment.spellCheckerAPI + '?text=' + event.target.value).subscribe(value => {
+      this.fixSpelling(value, event);
     },
       error => {
         console.log(error);
       });
   }
-  fixSpelling(value: any): void {
+  fixSpelling(value: any, event: any): void {
     value.forEach(elem => {
-      this.inputText = this.inputText.replace(elem.word, elem.s[0] || elem.word);
+      event.target.value = event.target.value.replace(elem.word, elem.s[0] || elem.word);
     });
-    console.log(this.inputText);
   }
   onKey(event: any): void {
     this.inputText = event.target.value;
   }
   onFocusOut(event: any): void {
-    this.postSpellCheckerData(this.inputText);
+    this.postSpellCheckerData(event);
   }
 }
