@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,10 @@ import { AutocheckerComponent } from './autochecker/autochecker.component';
 import { TaskComponent } from './task/task.component';
 import { MainComponentComponent } from './main-component/main-component.component';
 import { CommentThreadComponent } from './comment-thread/comment-thread.component';
+import { AddModuleComponent } from './add-module/add-module.component';
+import { ListModulesComponent } from './list-modules/list-modules.component';
+import { MatListModule } from '@angular/material/list';
+
 
 // Angular material
 import { MatMenuModule } from '@angular/material/menu';
@@ -25,7 +30,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { TaskDashboardComponent } from './task-dashboard/task-dashboard.component';
+
+
 
 
 @NgModule({
@@ -36,7 +45,9 @@ import { TaskDashboardComponent } from './task-dashboard/task-dashboard.componen
     TaskComponent,
     MainComponentComponent,
     CommentThreadComponent,
-    TaskDashboardComponent
+    TaskDashboardComponent,
+    AddModuleComponent,
+    ListModulesComponent
   ],
   imports: [
     BrowserModule,
@@ -45,21 +56,24 @@ import { TaskDashboardComponent } from './task-dashboard/task-dashboard.componen
     dbInteractionService,
     FormsModule,
     BrowserAnimationsModule,
+    CommonModule,
 
     // Angular Material
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
     MatBadgeModule,
-    MatInputModule,
+    MatListModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
     MatAutocompleteModule,
     MatSelectModule,
     MatCheckboxModule,
     MatCardModule,
     MatDividerModule,
-
-    ReactiveFormsModule
+    MatChipsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

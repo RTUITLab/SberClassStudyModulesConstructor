@@ -1,0 +1,203 @@
+<form [formGroup]="addModuleForm">
+    <div class="display-grid p-lr-100">
+        <h1>Заполните общие данные о модуле</h1>
+        <div class="display-grid" class="card-el-shadow display-grid-gap15">
+            <mat-form-field  matTooltip="глобальный - доступно всем участникам платформы.
+            школьный - доступно всем ученикам и учителям школы автора.
+            персональный - доступно только автору." matTooltipPosition="above">
+                <mat-label>Уровень видимости
+                </mat-label>
+                <mat-select formControlName='visibilitylevel'>
+                    <mat-option>--</mat-option>
+                    <mat-option value="personal">
+                        Персональный
+                    </mat-option>
+                    <mat-option value="school">
+                        Школьный
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="addModuleForm.get('visibilitylevel').hasError('required')">
+                    Поле <strong>обязательно</strong> для заполения
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="display-grid" class="card-el-shadow display-grid-gap15">
+            <div matTooltip="Можно jpg или png, до 5 Мб. Разрешение не менее 1090×728 пикселей.
+            персональный - доступно только автору." matTooltipPosition="above">
+                <div>Загрузка обложки модуля</div>
+                <input type="file" formControlName="moduleСoverImage" placeholder="Placholder">
+                <div>Можно jpg или png, до 5 Мб. Разрешение не менее 1090×728 пикселей.</div>
+                <div *ngIf="addModuleForm.get('moduleСoverImage').hasError('required')">
+                    Поле <strong>обязательно</strong> для заполения
+                </div>
+            </div>
+            <div>
+                <mat-form-field matTooltip="Название модуля должно отражать его тему. Длина названия не должна превышать 100 символов." matTooltipPosition="above">
+                    <mat-label>Наименование модуля*</mat-label>
+                    <input matInput formControlName='moduleName' placeholder="Placholder">
+
+                    <mat-error *ngIf="addModuleForm.get('moduleName').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div matTooltip="Можно jpg или png, до 5 Мб. Разрешение не менее 100×100 пикселей." matTooltipPosition="above">
+
+                <label>Маленькая картинка для списка</label>
+                <input type="file" formControlName="smallPictureForTheList" placeholder="Placholder">
+                <div *ngIf="addModuleForm.get('smallPictureForTheList').hasError('required')">
+                    Поле <strong>обязательно</strong> для заполения
+                </div>
+
+            </div>
+            <div>
+                <mat-form-field class="example-chip-list" matTooltip="Длина тега не должна превышать 30 символов." matTooltipPosition="above">
+                    <mat-label>Теги</mat-label>
+                    <mat-chip-list #chipList aria-label="tag selection">
+                        <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable"
+                            (removed)="remove(tag)">
+                            {{tag}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="New tag..." #tagInput formControlName='tags' [matAutocomplete]="auto"
+                            [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                        <mat-option *ngFor="let tag of filteredtags | async" [value]="tag">
+                            {{tag}}
+                        </mat-option>
+                    </mat-autocomplete>
+
+                    <mat-error *ngIf="addModuleForm.get('tags').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="display-grid card-el-shadow display-grid-gap15">
+
+            <div>
+                <mat-form-field matTooltip="Выберите предмет, по которому создается модуль" matTooltipPosition="above">
+                    <mat-label>Предмет*
+                    </mat-label>
+                    <mat-select formControlName='subject'>
+                        <mat-option>--</mat-option>
+                        <mat-option value="Coding">
+                            Coding
+                        </mat-option>
+                        <mat-option value="Math">
+                            Math
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="addModuleForm.get('subject').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field matTooltip="Выберите класс, для которого предназначается модуль" matTooltipPosition="above">
+                    <mat-label>Класс*</mat-label>
+                    <mat-select formControlName='class'>
+                        <mat-option>--</mat-option>
+                        <mat-option value="1p">
+                            1-я параллель
+                        </mat-option>
+                        <mat-option value="2p">
+                            2-я параллель
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="addModuleForm.get('class').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+            <div>
+
+                <mat-checkbox matTooltip="Дополнительный модуль не входит в обязательную часть учебного плана.
+                Такой модуль ученик добавляет в план по своему выбору" matTooltipPosition="above" formControlName="additionalModule">
+                    Дополнительный модуль</mat-checkbox>
+                <div *ngIf="addModuleForm.get('additionalModule').hasError('required')">
+                    Поле <strong>обязательно</strong> для заполения
+                </div>
+
+            </div>
+            <div>
+                <mat-form-field matTooltip="Время, отводимое ученику на выполнение модуля (не более 24 ак. часов). Большие темы рекомендуется разбивать на несколько модулей" matTooltipPosition="above">
+                    <mat-label>Трудоемкость*</mat-label>
+                    <input formControlName='laborIntensity' type="number" matInput placeholder="Placholder">
+
+                    <mat-error *ngIf="addModuleForm.get('laborIntensity').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field matTooltip="Главная мысль, в понимание которой вносит вклад этот модуль" matTooltipPosition="above">
+                    <mat-label>Базовая идея*</mat-label>
+                    <input formControlName='basicIdea' matInput placeholder="Placholder">
+
+                    <mat-error *ngIf="addModuleForm.get('basicIdea').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field matTooltip="Сложный вопрос, ответить на который будет возможно после прохождения модуля" matTooltipPosition="above">
+                    <mat-label>Проблемный вопрос*</mat-label>
+                    <input formControlName='problematicQuestion' matInput placeholder="Placholder">
+
+                    <mat-error *ngIf="addModuleForm.get('problematicQuestion').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="display-grid card-el-shadow display-grid-gap15">
+            <h2>Инструкция для учителя</h2>
+            <div>
+                <mat-form-field matTooltip="Опишите, как данный модуль позволит достичь заявленной учебной цели" matTooltipPosition="above"> 
+                    <mat-label>Общий замысел модуля</mat-label>
+                    <input formControlName='generalConceptOfTheModule' matInput placeholder="Placholder">
+
+                    <mat-error *ngIf="addModuleForm.get('generalConceptOfTheModule').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Типовое распределение заданий по урокам</mat-label>
+                    <input formControlName='typicalDistributionOfAssignmentsByLessons' matInput
+                        placeholder="Placholder">
+                    <mat-error
+                        *ngIf="addModuleForm.get('typicalDistributionOfAssignmentsByLessons').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Возможные трудности, ложные представления и способы их преодоления
+                    </mat-label>
+                    <input formControlName='possibleDifficultiesMisconceptionsAndWaysToOvercomeThem' matInput
+                        placeholder="Placholder">
+                    <mat-error
+                        *ngIf="addModuleForm.get('possibleDifficultiesMisconceptionsAndWaysToOvercomeThem').hasError('required')">
+                        Поле <strong>обязательно</strong> для заполения
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="buttonsPanel">
+            <button style="justify-self: start;" mat-flat-button color="primary" routerLink="">
+                Назад
+            </button>
+            <button style="justify-self: end;" mat-flat-button color="primary" (click)="SaveModule()">
+                Сохранить
+            </button>
+        </div>
+    </div>
+</form>
