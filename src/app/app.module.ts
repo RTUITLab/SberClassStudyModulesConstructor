@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import { AutocheckerComponent } from './autochecker/autochecker.component';
 import { TaskComponent } from './task/task.component';
+import { MainComponentComponent } from './main-component/main-component.component';
 
 
 
@@ -24,7 +25,8 @@ import { TaskComponent } from './task/task.component';
     AppComponent,
     NotificationBarComponent,
     AutocheckerComponent,
-    TaskComponent
+    TaskComponent,
+    MainComponentComponent
   ],
   imports: [
     BrowserModule,
