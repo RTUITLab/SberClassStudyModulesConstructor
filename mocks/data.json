@@ -9,12 +9,14 @@
     {
       "taskId": 0,
       "id": 0,
+      "userId": 2,
       "userName": "Корректор",
       "message": "Поправьте этот момент"
     },
     {
       "taskId": 0,
       "id": 1,
+      "userId": 1,
       "userName": "Учитель",
       "message": "Хорошо, поправила"
     }
@@ -47,11 +49,6 @@
       "userId": 0,
       "userRole": "mainEditor",
       "message": "Вы призваны к модулю (название)"
-    },
-    {
-      "id": 1,
-      "userRole": "",
-      "message": "Вы призваны к модулю Модуль 1"
     }
   ],
   "tasks": [

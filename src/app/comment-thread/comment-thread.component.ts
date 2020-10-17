@@ -39,7 +39,7 @@ export class CommentThreadComponent implements OnInit {
     let commentsIds = allComments.map( comment => comment.userName );
 
     let allUsers = await this._dbInterService.getUsersData();
-    this.users = allUsers.filter( user => allComments.filter(c => c.userName == user.name).length == 0 ) // change later to ids
+    this.users = allUsers.filter( user => allComments.filter(c => c.userId == user.id).length == 0 ).filter(user => user.id != this.currentUser.id) // change later to ids
 
     this.comments = allComments.filter( el => el.taskId == this.currentTaskId);
   }
@@ -49,10 +49,15 @@ export class CommentThreadComponent implements OnInit {
     this.canPublish = val.length > 0;
   }
 
+  getRandomInt(max = 100000): number {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
   async onPublishComment(): Promise<void> {
     let comment = Object.assign( new Comment(), {
       taskId: this.currentTaskId,
-      id: this.currentUser.id,
+      id: this.getRandomInt(),
+      userId: this.currentUser.id,
       userName: this.currentUser.name,
       message: this.commentString
     });
@@ -70,7 +75,8 @@ export class CommentThreadComponent implements OnInit {
 
   async onInvite(): Promise<void> {
     let notification = Object.assign( new Notify(), {
-      id: this.selectedInviteId,
+      id: this.getRandomInt(),
+      userId: this.selectedInviteId,
       userRole: "",
       message: "Вы призваны к модулю Модуль 1"
     });
