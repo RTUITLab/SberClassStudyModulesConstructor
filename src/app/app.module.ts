@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AutocheckerComponent } from './autochecker/autochecker.component';
 import { TaskComponent } from './task/task.component';
 import { MainComponentComponent } from './main-component/main-component.component';
+import { CommentThreadComponent } from './comment-thread/comment-thread.component';
 
 // Angular material
 import { MatMenuModule } from '@angular/material/menu';
@@ -32,7 +33,8 @@ import { MatDividerModule } from '@angular/material/divider';
     NotificationBarComponent,
     AutocheckerComponent,
     TaskComponent,
-    MainComponentComponent
+    MainComponentComponent,
+    CommentThreadComponent
   ],
   imports: [
     BrowserModule,

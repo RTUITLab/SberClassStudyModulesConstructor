@@ -1,0 +1,23 @@
+.comments-thread {
+    padding: 10px;
+    margin: auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+.comment {
+    padding-bottom: 14px;
+}
+
+mat-divider {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+button {
+    float: right;
+}

@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "SberClassStudyModulesConstructor"
+  "defaultProject": "SberClassStudyModulesConstructor",
+  "cli": {
+    "analytics": false
+  }
 }
