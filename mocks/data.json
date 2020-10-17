@@ -1,72 +1,74 @@
 {
-    "data": [],
-    "current_user": {
-        "id": 0,
-        "name": "Главный редактор",
-        "role": "mainEditor"
+  "data": [],
+  "current_user": {
+    "id": 0,
+    "name": "Главный редактор",
+    "role": "mainEditor"
+  },
+  "comments": [
+    {
+      "taskId": 0,
+      "id": 0,
+      "userId": 2,
+      "userName": "Корректор",
+      "message": "Поправьте этот момент"
     },
-    "comments": [
-        {
-            "taskId": 0,
-            "id": 0,
-            "userName": "Корректор",
-            "message": "Что вас беспокоит?"
-        },
-        {
-            "taskId": 0,
-            "id": 1,
-            "userName": "Учитель",
-            "message": "У меня ступор мозговины"
-        }
-    ],
-    "users": [
-        {
-            "id": 0,
-            "name": "Главный редактор",
-            "role": "mainEditor"
-        },
-        {
-            "id": 1,
-            "name": "Учитель",
-            "role": "teacher"
-        },
-        {
-            "id": 2,
-            "name": "Корректор",
-            "role": "corrector"
-        },
-        {
-            "id": 3,
-            "name": "Выпускающий редактор",
-            "role": "finalEditor"
-        }
-    ],
-    "notifications": [
-        {
-            "id": 0,
-            "userId": 0,
-            "userRole": "mainEditor",
-            "message": "Вы призваны к модулю (название)"
-        }
-    ],
-    "tasks": [
-      {
-        "id": 0,
-        "subject" : "Математика",
-        "name" : "Сложный пример на арифметику",
-        "grade": 11,
-        "level" : "4.0",
-        "timeConsumption": 30,
-        "description" : "сложите 2+2)"
-      },
-      {
-        "id": 1,
-        "subject" : "Русский язык",
-        "name" : "Найдите орфографическую ошибку",
-        "grade" : 10,
-        "level" : "4.0",
-        "timeConsumption": 40,
-        "description" : "найдие ошибку малоко)"
-      }
-    ]
+    {
+      "taskId": 0,
+      "id": 1,
+      "userId": 1,
+      "userName": "Учитель",
+      "message": "Хорошо, поправила"
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "Главный редактор",
+      "role": "mainEditor"
+    },
+    {
+      "id": 1,
+      "name": "Учитель",
+      "role": "teacher"
+    },
+    {
+      "id": 2,
+      "name": "Корректор",
+      "role": "corrector"
+    },
+    {
+      "id": 3,
+      "name": "Выпускающий редактор",
+      "role": "finalEditor"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 0,
+      "userId": 0,
+      "userRole": "mainEditor",
+      "message": "Вы призваны к модулю (название)"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 0,
+      "subject": "Математика",
+      "name": "Сложный пример на арифметику",
+      "grade": 11,
+      "level": "4.0",
+      "timeConsumption": 30,
+      "description": "сложите 2+2)"
+    },
+    {
+      "id": 1,
+      "subject": "Русский язык",
+      "name": "Найдите орфографическую ошибку",
+      "grade": 10,
+      "level": "4.0",
+      "timeConsumption": 40,
+      "description": "найдие ошибку малоко)"
+    }
+  ]
 }

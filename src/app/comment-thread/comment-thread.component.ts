@@ -12,12 +12,16 @@ import { User } from 'src/models/user';
 })
 export class CommentThreadComponent implements OnInit {
 
+  @Input() currentTaskId: number = 0;
+
   currentUser: User;
   users: Array<User>;
   comments: Array<Comment>;
 
   commentString: string = "";
   canPublish: boolean = false;
+  canInvite: boolean = false;
+  selectedInviteId: number;
 
   private _dbInterService: dbInteractionService;
   
@@ -26,13 +30,18 @@ export class CommentThreadComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    await this.getInfoAboutCurrentUser();
+    await this.loadData();
   }
 
-  async getInfoAboutCurrentUser(){
+  async loadData(){
     this.currentUser = await this._dbInterService.getUserData();
-    this.users = await this._dbInterService.getUsersData();
-    this.comments = await this._dbInterService.getComments(0);
+    let allComments = await this._dbInterService.getComments(0);
+    let commentsIds = allComments.map( comment => comment.userName );
+
+    let allUsers = await this._dbInterService.getUsersData();
+    this.users = allUsers.filter( user => allComments.filter(c => c.userId == user.id).length == 0 ).filter(user => user.id != this.currentUser.id) // change later to ids
+
+    this.comments = allComments.filter( el => el.taskId == this.currentTaskId);
   }
 
   onCommentChange(val: string): void {
@@ -40,15 +49,38 @@ export class CommentThreadComponent implements OnInit {
     this.canPublish = val.length > 0;
   }
 
-  onPublishComment(): void {
+  getRandomInt(max = 100000): number {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  async onPublishComment(): Promise<void> {
     let comment = Object.assign( new Comment(), {
-      id: this.currentUser.id,
+      taskId: this.currentTaskId,
+      id: this.getRandomInt(),
+      userId: this.currentUser.id,
       userName: this.currentUser.name,
       message: this.commentString
     });
-    this.comments.push(comment);
+    await this._dbInterService.postData("comments", comment);
+    await this.loadData();
+
     this.commentString = "";
     this.canPublish = false;
+  }
+
+  selectionChanged(id: number): void {
+    this.canInvite = true;
+    this.selectedInviteId = id;
+  }
+
+  async onInvite(): Promise<void> {
+    let notification = Object.assign( new Notify(), {
+      id: this.getRandomInt(),
+      userId: this.selectedInviteId,
+      userRole: "",
+      message: "Вы призваны к модулю Модуль 1"
+    });
+    await this._dbInterService.postData("notifications", notification);
   }
 
 }
