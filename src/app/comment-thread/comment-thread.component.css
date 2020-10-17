@@ -18,6 +18,19 @@ mat-form-field {
     width: 100%;
 }
 
-button {
+#publish-button {
     float: right;
+}
+
+#invite-button {
+    float: right;
+}
+
+.invite-form {
+    display: inline-block;
+    width: 70%;
+}
+
+.invite-container {
+    padding-top: 20px;
 }
