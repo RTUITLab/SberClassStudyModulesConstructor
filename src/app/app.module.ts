@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import { AutocheckerComponent } from './autochecker/autochecker.component';
+import { TaskComponent } from './task/task.component';
 
 
 
@@ -22,7 +23,8 @@ import { AutocheckerComponent } from './autochecker/autochecker.component';
   declarations: [
     AppComponent,
     NotificationBarComponent,
-    AutocheckerComponent
+    AutocheckerComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
