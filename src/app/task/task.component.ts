@@ -18,7 +18,6 @@ export class TaskComponent implements OnInit {
   filteredOptions: Observable<string[]>;
 
   constructor(private http: HttpClient, private fb: FormBuilder) { }
-  inputText = '';
   ngOnInit(): void {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),

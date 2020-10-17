@@ -33,6 +33,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { TaskDashboardComponent } from './task-dashboard/task-dashboard.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 
 
@@ -73,7 +75,8 @@ import { TaskDashboardComponent } from './task-dashboard/task-dashboard.componen
     MatCardModule,
     MatDividerModule,
     MatChipsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
