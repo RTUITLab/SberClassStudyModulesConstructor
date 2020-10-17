@@ -1,0 +1,38 @@
+{
+    "data": [],
+    "current_user": {
+        "id": 0,
+        "name": "Главный редактор",
+        "role": "mainEditor"
+    },
+    "users": [
+        {
+            "id": 0,
+            "name": "Главный редактор",
+            "role": "mainEditor"
+        },
+        {
+            "id": 1,
+            "name": "Учитель",
+            "role": "teacher"
+        },
+        {
+            "id": 2,
+            "name": "Корректор",
+            "role": "corrector"
+        },
+        {
+            "id": 3,
+            "name": "Выпускающий редактор",
+            "role": "finalEditor"
+        }
+    ],
+    "notifications": [
+        {
+            "id": 0,
+            "userId": 0,
+            "userRole": "mainEditor",
+            "message": "Вы призваны к модулю (название)"
+        }
+    ]
+}
