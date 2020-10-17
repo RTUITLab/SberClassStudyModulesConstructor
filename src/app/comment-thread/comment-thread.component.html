@@ -7,10 +7,10 @@
     </div>
     <div>
         <mat-form-field appearance="fill">
-            <mat-label>Your comment</mat-label>
-            <textarea [(ngModel)]="commentString" matInput></textarea>
+            <mat-label>Ваш комментарий</mat-label>
+            <textarea (input)="onCommentChange($event.target.value)" [ngModel]="commentString" matInput></textarea>
         </mat-form-field>
         <br>
-        <button mat-raised-button (click)="onPublishComment()">Publish</button>
+        <button [disabled]="!canPublish" mat-raised-button (click)="onPublishComment()">Опубликовать</button>
     </div>
 </div>

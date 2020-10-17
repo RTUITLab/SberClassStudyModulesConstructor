@@ -8,8 +8,10 @@ import { Comment } from '../../models/Comment';
 })
 export class CommentThreadComponent implements OnInit {
 
-  commentString: string;
+  commentString: string = "";
   currentUserName: string = "User";
+  currentUserId: number = 1;
+  canPublish: boolean = false;
 
   @Input() comments: Array<Comment> = [
     {id: 1, userName: "Alex", message: "string"},
@@ -20,14 +22,20 @@ export class CommentThreadComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCommentChange(val: string): void {
+    this.commentString = val;
+    this.canPublish = val.length > 0;
+  }
+
   onPublishComment(): void {
     let comment = Object.assign( new Comment(), {
-      age: 29,
+      id: this.currentUserId,
       userName: this.currentUserName,
       message: this.commentString
     });
-    this.comments.push(comment)
-    this.commentString = ""
+    this.comments.push(comment);
+    this.commentString = "";
+    this.canPublish = false;
   }
 
 }
