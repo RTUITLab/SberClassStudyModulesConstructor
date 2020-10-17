@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddModuleComponent } from './add-module/add-module.component';
 import { AppComponent } from './app.component';
 import { AutocheckerComponent } from './autochecker/autochecker.component';
 import { MainComponentComponent } from './main-component/main-component.component';
@@ -10,8 +11,9 @@ import { CommentThreadComponent } from './comment-thread/comment-thread.componen
 
 const routes: Routes = [
   { path: "", component: MainComponentComponent },
-  { path: "task", component: TaskComponent },
-  { path: "autochecker", component: AutocheckerComponent },
+  { path: "add-task", component: TaskComponent },
+  { path: "add-module", component: AddModuleComponent },
+  { path: "autochecker", component: AutocheckerComponent }
   { path: "dashboard", component: TaskDashboardComponent},
   { path: "comments", component: CommentThreadComponent}
 ];

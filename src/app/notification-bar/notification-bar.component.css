@@ -1,0 +1,6 @@
+.display-grid{
+    display: grid;
+    grid-auto-rows: auto;
+    justify-items: end;
+    margin: 9px 50px;
+}
