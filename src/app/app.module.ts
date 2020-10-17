@@ -25,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { TaskDashboardComponent } from './task-dashboard/task-dashboard.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MatDividerModule } from '@angular/material/divider';
     AutocheckerComponent,
     TaskComponent,
     MainComponentComponent,
-    CommentThreadComponent
+    CommentThreadComponent,
+    TaskDashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 <a routerLink="">Назад</a>
 <div style="padding: 1%;">
-    <form>
+    <form [formGroup]="myForm">
         <div>
             <mat-form-field>
                 <mat-label>Название задания</mat-label>
                 <input matInput id="task_name" name="task_name" type="text"
-                    placeholder="Напимер, Восстанови текст о морепродуктах">
+                    placeholder="Напимер, Восстанови текст о морепродуктах" formControlName="task_name">
             </mat-form-field>
         </div>
 
@@ -13,7 +13,7 @@
             <mat-form-field>
                 <mat-label>Тэги</mat-label>
                 <input matInput type="text" placeholder="Выберите один" [formControl]="myControl"
-                    [matAutocomplete]="tags">
+                    [matAutocomplete]="tags" >
                 <mat-autocomplete #tags="matAutocomplete">
                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                         {{option}}
@@ -25,7 +25,7 @@
         <div>
             <mat-form-field>
                 <mat-label>Уровень видимости</mat-label>
-                <mat-select>
+                <mat-select formControlName="task_visibility">
                     <mat-option value="personal">Персональный</mat-option>
                     <mat-option value="school">Школьный</mat-option>
                 </mat-select>
@@ -35,14 +35,15 @@
         <div>
             <mat-form-field>
                 <mat-label>Количество попыток</mat-label>
-                <input matInput id="task_attempts" name="task_attempts" type="number" value="3" min="0" max="10">
+                <input matInput id="task_attempts" name="task_attempts" type="number" value="3" min="0" max="10"
+                    formControlName="task_attempts">
             </mat-form-field>
         </div>
 
         <div>
             <mat-form-field>
                 <mat-label>Форма работы</mat-label>
-                <mat-select>
+                <mat-select formControlName="task_type">
                     <mat-option value="indiv">Индивидуально</mat-option>
                     <mat-option value="smallg">В малых группах</mat-option>
                     <mat-option value="couple">В парах</mat-option>
@@ -54,7 +55,8 @@
         <div>
             <mat-form-field>
                 <mat-label>Трудоёмкость</mat-label>
-                <input matInput id="task_hours" name="task_hours" type="number" value="8" min="0" max="24">
+                <input matInput id="task_hours" name="task_hours" type="number" value="8" min="0" max="24"
+                    formControlName="task_hours">
             </mat-form-field>
         </div>
 
@@ -70,25 +72,32 @@
                     <mat-label>Развитие мягких навыков</mat-label>
                     <section>
                         <p class="checkshow">
-                            <mat-checkbox name="soft_skills" value="ch1">Принятие решений</mat-checkbox>
+                            <mat-checkbox formControlName="ch1" name="soft_skills" value="ch1">Принятие решений
+                            </mat-checkbox>
                         </p>
                         <p class="checkshow">
-                            <mat-checkbox name="soft_skills" value="ch2">Работа в команде</mat-checkbox>
+                            <mat-checkbox formControlName="ch2" name="soft_skills" value="ch2">Работа в команде
+                            </mat-checkbox>
                         </p>
                         <p class="checkshow">
-                            <mat-checkbox name="soft_skills" value="ch3">Управление собой</mat-checkbox>
+                            <mat-checkbox formControlName="ch3" name="soft_skills" value="ch3">Управление собой
+                            </mat-checkbox>
                         </p>
                         <p class="checkshow">
-                            <mat-checkbox name="soft_skills" value="ch4">Креативное мышление</mat-checkbox>
+                            <mat-checkbox formControlName="ch4" name="soft_skills" value="ch4">Креативное мышление
+                            </mat-checkbox>
                         </p>
                         <p class="checkshow">
-                            <mat-checkbox name="soft_skills" value="ch5">Критическое мышление</mat-checkbox>
+                            <mat-checkbox formControlName="ch5" name="soft_skills" value="ch5">Критическое мышление
+                            </mat-checkbox>
                         </p>
                         <p class="checkshow">
-                            <mat-checkbox name="soft_skills" value="ch6">Эмоциональный интеллект</mat-checkbox>
+                            <mat-checkbox formControlName="ch6" name="soft_skills" value="ch6">Эмоциональный интеллект
+                            </mat-checkbox>
                         </p>
                         <p class="checkshow">
-                            <mat-checkbox name="soft_skills" value="ch7">Системное мышление</mat-checkbox>
+                            <mat-checkbox formControlName="ch7" name="soft_skills" value="ch7">Системное мышление
+                            </mat-checkbox>
                         </p>
                     </section>
                 </mat-card-content>
@@ -98,14 +107,15 @@
         <div>
             <mat-form-field>
                 <mat-label>ФИО автора задания</mat-label>
-                <input matInput id="task_autor" name="task_autor" type="text" placeholder="Название с акка взять">
+                <input matInput id="task_author" name="task_author" type="text" placeholder="Название с акка взять"
+                    formControlName="task_author">
             </mat-form-field>
         </div>
 
         <div>
             <mat-form-field>
                 <mat-label>Лицензия</mat-label>
-                <mat-select>
+                <mat-select formControlName="task_license">
                     <mat-option value="CC0">CC0</mat-option>
                     <mat-option value="BY">BY</mat-option>
                     <mat-option value="BY-SA">BY-SA</mat-option>
@@ -120,7 +130,7 @@
         <div>
             <mat-form-field>
                 <mat-label>Внешние источники информации</mat-label>
-                <input matInput id="task_outsource" name="task_outsource" type="text">
+                <input matInput id="task_outsource" name="task_outsource" type="text" formControlName="task_outsource">
             </mat-form-field>
         </div>
 
@@ -129,21 +139,24 @@
             <div>
                 <mat-form-field>
                     <mat-label>Заметки для проверяющего</mat-label>
-                    <textarea matInput id="task_notes_checker" name="task_notes_checker" type="text"></textarea>
+                    <textarea matInput id="task_notes_checker" name="task_notes_checker" type="text"
+                        formControlName="task_notes_checker"></textarea>
                 </mat-form-field>
             </div>
 
             <div>
                 <mat-form-field>
                     <mat-label>Заметки для учителя</mat-label>
-                    <textarea matInput id="task_notes_teacher" name="task_notes_teacher" type="text"></textarea>
+                    <textarea matInput id="task_notes_teacher" name="task_notes_teacher" type="text"
+                        formControlName="task_notes_teacher"></textarea>
                 </mat-form-field>
             </div>
 
             <div>
                 <mat-form-field>
                     <mat-label>Заметки для ученика</mat-label>
-                    <textarea matInput id="task_notes_student" name="task_notes_student" type="text"></textarea>
+                    <textarea matInput id="task_notes_student" name="task_notes_student" type="text"
+                        formControlName="task_notes_student"></textarea>
                 </mat-form-field>
             </div>
         </div>
