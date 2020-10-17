@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
-  dbApi: "http://localhost:3000"
+  dbApi: "http://localhost:3000",
+  spellCheckerAPI: 'https://speller.yandex.net/services/spellservice.json/checkText',
+  originalityCheckerAPI: 'http://api.text.ru/post',
+  originalityCheckerKey: ''
 };
 

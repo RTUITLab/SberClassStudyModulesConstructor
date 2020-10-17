@@ -12,6 +12,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
+import { AutocheckerComponent } from './autochecker/autochecker.component';
 
 
 
@@ -20,7 +21,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
-    NotificationBarComponent
+    NotificationBarComponent,
+    AutocheckerComponent
   ],
   imports: [
     BrowserModule,
