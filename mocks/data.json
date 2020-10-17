@@ -5,6 +5,20 @@
         "name": "Главный редактор",
         "role": "mainEditor"
     },
+    "comments": [
+        {
+            "taskId": 0,
+            "id": 0,
+            "userName": "Корректор",
+            "message": "Что вас беспокоит?"
+        },
+        {
+            "taskId": 0,
+            "id": 1,
+            "userName": "Учитель",
+            "message": "У меня ступор мозговины"
+        }
+    ],
     "users": [
         {
             "id": 0,
