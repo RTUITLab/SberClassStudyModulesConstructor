@@ -1,4 +1,9 @@
 export class Task {
+  private static nums:number = 0;
+  constructor(){
+      this.id = Task.nums;
+      Task.nums++;
+  }
   id: number;
   ch1: boolean;
   ch2: boolean;

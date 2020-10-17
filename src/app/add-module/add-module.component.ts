@@ -6,6 +6,8 @@ import {MatChipInputEvent} from '@angular/material/chips';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Module } from './../../models/Module';
+import { dbInteractionService } from 'src/services/db_service/dbInteractionService';
 
 @Component({
   selector: 'app-add-module',
@@ -20,14 +22,19 @@ export class AddModuleComponent implements OnInit {
   filteredtags: Observable<string[]>;
   tags: string[] = ['История'];
   alltags: string[] = ['История', 'Кодинг', 'Матан'];
+  private _dbInterService:dbInteractionService;
+  private newModule: Module;
+
 
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
+    
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, dbis: dbInteractionService) {
     this.filteredtags = this.addModuleForm.controls["tags"].valueChanges.pipe(
       startWith(null),
       map((tag: string | null) => tag ? this._filter(tag) : this.alltags.slice()));
+      this._dbInterService = dbis;
    }
 
   addModuleForm = this.fb.group({
@@ -49,16 +56,29 @@ export class AddModuleComponent implements OnInit {
     moduleСover: new FormControl(''),
     generalConceptOfTheModule: new FormControl(''),
     typicalDistributionOfAssignmentsByLessons: new FormControl(''),
-    possibleDifficultiesMisconceptionsAndWaysToOvercomeThem: new FormControl('')
+    possibleDifficultiesMisconceptionsAndWaysToOvercomeThem: new FormControl(''),
+    elOfGoal2: this.fb.group({
+      goalElementDescription: new FormControl('', [Validators.required]),
+      anExampleOfAchievingAGoal: new FormControl('', [Validators.required])
+    }),
+    elOfGoal3: this.fb.group({
+      goalElementDescription: new FormControl('', [Validators.required]),
+      anExampleOfAchievingAGoal: new FormControl('', [Validators.required])
+    }),
+    elOfGoal4: this.fb.group({
+      goalElementDescription: new FormControl('', [Validators.required]),
+      anExampleOfAchievingAGoal: new FormControl('', [Validators.required])
+    }),
   });
 
 
   ngOnInit(): void {
-    // this.addModuleForm.controls
+
   }
 
   SaveModule(){
-    console.log(this.addModuleForm.value);
+    this.newModule = new Module(this.addModuleForm.value);
+    this._dbInterService.postData("modules", this.newModule);
   }
 
   add(event: MatChipInputEvent): void {
