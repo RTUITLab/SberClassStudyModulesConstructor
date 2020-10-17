@@ -37,6 +37,9 @@ export class dbInteractionService {
     return await this._http.get<Task[]>(`${this._api}/tasks`).toPromise<Task[]>();
   }
 
+  async getTask(taskID: number):Promise<Task>{
+      return await this._http.get<Task>(`${this._api}/tasks/${taskID}`).toPromise<Task>();
+  }
     postData(reqString: string, data: object){
         return this._http.post(`${this._api}/${reqString}/`, data)
             .toPromise()

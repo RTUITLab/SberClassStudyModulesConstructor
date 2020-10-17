@@ -49,7 +49,8 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     CommentThreadComponent,
     TaskDashboardComponent,
     AddModuleComponent,
-    ListModulesComponent
+    ListModulesComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,

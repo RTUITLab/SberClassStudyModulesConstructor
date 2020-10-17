@@ -13,14 +13,14 @@
     </ng-template>
     <mat-card class="task-card" *ngFor="let task of tasks">
       <mat-card-header>
-        <mat-card-title>{{task.name}}</mat-card-title>
+        <mat-card-title>{{task.task_name}}</mat-card-title>
         <mat-card-subtitle>{{task.subject}}</mat-card-subtitle>
       </mat-card-header>
       <mat-divider [vertical]="true"></mat-divider>
       <mat-card-content>
         <p>{{task.grade}} класс</p>
-        <mat-icon>grade</mat-icon><p>{{task.level}} </p>
-        <mat-icon>schedule</mat-icon><p>{{task.timeConsumption}} мин</p>
+        <mat-icon>grade</mat-icon><p>{{task.level}}.0</p>
+        <mat-icon>schedule</mat-icon><p>{{task.task_minutes}} мин</p>
       </mat-card-content>
       <button mat-raised-button color="primary" [routerLink]="task.id">Редактировать</button>
     </mat-card>

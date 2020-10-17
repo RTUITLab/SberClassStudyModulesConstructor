@@ -31,7 +31,7 @@ export class TaskComponent implements OnInit {
       task_visibility: new FormControl("personal"),
       task_attempts: new FormControl(3),
       task_type: new FormControl("indiv"),
-      task_hours: new FormControl(8),
+      task_minutes: new FormControl(60),
       ch1: new FormControl(false),
       ch2: new FormControl(false),
       ch3: new FormControl(false),
@@ -44,8 +44,12 @@ export class TaskComponent implements OnInit {
       task_outsource: new FormControl(""),
       task_notes_checker: new FormControl(""),
       task_notes_teacher: new FormControl(""),
-      task_notes_student: new FormControl("")
-    })
+      task_notes_student: new FormControl(""),
+      grade: new FormControl(9),
+      subject: new FormControl(""),
+      level: new FormControl(4),
+      description: new FormControl("")
+    });
   }
 
   private _filter(value: string): string[] {
