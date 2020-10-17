@@ -8,6 +8,7 @@ import { NotificationBarComponent } from './notification-bar/notification-bar.co
 import { TaskComponent } from './task/task.component';
 import {TaskDashboardComponent} from './task-dashboard/task-dashboard.component';
 import { CommentThreadComponent } from './comment-thread/comment-thread.component';
+import {EditTaskComponent} from './edit-task/edit-task.component';
 
 const routes: Routes = [
   { path: "", component: MainComponentComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: "add-module", component: AddModuleComponent },
   { path: "autochecker", component: AutocheckerComponent },
   { path: "dashboard", component: TaskDashboardComponent},
-  { path: "comments", component: CommentThreadComponent}
+  { path: "comments", component: CommentThreadComponent},
+  { path: 'tasks/:taskID/edit', component: EditTaskComponent},
 ];
 
 @NgModule({

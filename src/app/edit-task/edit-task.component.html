@@ -1,0 +1,201 @@
+<a routerLink="">Назад</a>
+<div style="padding: 1%;">
+  <form [formGroup]="myForm">
+    <div>
+      <mat-form-field>
+        <mat-label>Название задания</mat-label>
+        <input matInput id="task_name" name="task_name" type="text"
+               placeholder="Напимер, Восстанови текст о морепродуктах" formControlName="task_name"
+               (focusout)="onFocusOut($event)">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Тэги</mat-label>
+        <input matInput type="text" placeholder="Выберите один" [formControl]="myControl"
+               [matAutocomplete]="tags" >
+        <mat-autocomplete #tags="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Уровень видимости</mat-label>
+        <mat-select formControlName="task_visibility">
+          <mat-option value="personal">Персональный</mat-option>
+          <mat-option value="school">Школьный</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Количество попыток</mat-label>
+        <input matInput id="task_attempts" name="task_attempts" type="number" value="3" min="0" max="10"
+               formControlName="task_attempts">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Форма работы</mat-label>
+        <mat-select formControlName="task_type">
+          <mat-option value="indiv">Индивидуально</mat-option>
+          <mat-option value="smallg">В малых группах</mat-option>
+          <mat-option value="couple">В парах</mat-option>
+          <mat-option value="inschool">В классе</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Трудоёмкость</mat-label>
+        <input matInput id="task_minutes" name="task_minutes" type="number" value="60" min="0" max="120"
+               formControlName="task_minutes" (focusout)="onFocusOut($event)">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <style>
+        .checkshow {
+          margin: 0 0 0 0;
+          padding: 0 0 0 0;
+        }
+      </style>
+      <mat-card>
+        <mat-card-content>
+          <mat-label>Развитие мягких навыков</mat-label>
+          <section>
+            <p class="checkshow">
+              <mat-checkbox formControlName="ch1" name="soft_skills" value="ch1">Принятие решений
+              </mat-checkbox>
+            </p>
+            <p class="checkshow">
+              <mat-checkbox formControlName="ch2" name="soft_skills" value="ch2">Работа в команде
+              </mat-checkbox>
+            </p>
+            <p class="checkshow">
+              <mat-checkbox formControlName="ch3" name="soft_skills" value="ch3">Управление собой
+              </mat-checkbox>
+            </p>
+            <p class="checkshow">
+              <mat-checkbox formControlName="ch4" name="soft_skills" value="ch4">Креативное мышление
+              </mat-checkbox>
+            </p>
+            <p class="checkshow">
+              <mat-checkbox formControlName="ch5" name="soft_skills" value="ch5">Критическое мышление
+              </mat-checkbox>
+            </p>
+            <p class="checkshow">
+              <mat-checkbox formControlName="ch6" name="soft_skills" value="ch6">Эмоциональный интеллект
+              </mat-checkbox>
+            </p>
+            <p class="checkshow">
+              <mat-checkbox formControlName="ch7" name="soft_skills" value="ch7">Системное мышление
+              </mat-checkbox>
+            </p>
+          </section>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>ФИО автора задания</mat-label>
+        <input matInput id="task_author" name="task_author" type="text" placeholder="Название с акка взять"
+               formControlName="task_author" (focusout)="onFocusOut($event)">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Лицензия</mat-label>
+        <mat-select formControlName="task_license">
+          <mat-option value="CC0">CC0</mat-option>
+          <mat-option value="BY">BY</mat-option>
+          <mat-option value="BY-SA">BY-SA</mat-option>
+          <mat-option value="BY-NC">BY-NC</mat-option>
+          <mat-option value="BY-NC-SA">BY-NC-SA</mat-option>
+          <mat-option value="BY-ND">BY-ND</mat-option>
+          <mat-option value="BY-NC-ND">BY-NC-ND</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Внешние источники информации</mat-label>
+        <input matInput id="task_outsource" name="task_outsource" type="text" formControlName="task_outsource" (focusout)="onFocusOut($event)">
+      </mat-form-field>
+    </div>
+
+    <mat-divider></mat-divider>
+    <div class="notes">
+      <div>
+        <mat-form-field>
+          <mat-label>Заметки для проверяющего</mat-label>
+          <textarea matInput id="task_notes_checker" name="task_notes_checker" type="text"
+                    formControlName="task_notes_checker" (focusout)="onFocusOut($event)"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Заметки для учителя</mat-label>
+          <textarea matInput id="task_notes_teacher" name="task_notes_teacher" type="text"
+                    formControlName="task_notes_teacher" (focusout)="onFocusOut($event)"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Заметки для ученика</mat-label>
+          <textarea matInput id="task_notes_student" name="task_notes_student" type="text"
+                    formControlName="task_notes_student" (focusout)="onFocusOut($event)"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Класс</mat-label>
+          <input matInput id="grade" name="grade" type="number" value="9" min="1" max="11"
+                 formControlName="grade">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Предмет</mat-label>
+          <input matInput id="subject" name="subject" type="text"
+                 placeholder="Например, математика" formControlName="subject"
+                 (focusout)="onFocusOut($event)">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Уровень</mat-label>
+          <input matInput id="level" name="level" type="number" value="4" min="1" max="4"
+                 formControlName="level">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Описание задачи</mat-label>
+          <textarea matInput id="description" name="description" type="text"
+                    formControlName="description" (focusout)="onFocusOut($event)"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary"
+            (click)="createTask()">Сохранить изменения</button>
+  </form>
+</div>

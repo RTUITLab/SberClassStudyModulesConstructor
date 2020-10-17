@@ -6,9 +6,9 @@ export class Task {
   }
   id: number;
   subject: string;
-  name: string;
+  task_name: string;
   description: string;
   grade: number;
   level: string;
-  timeConsumption: number;
+  task_minutes: number;
 }
