@@ -27,25 +27,25 @@ export class TaskComponent implements OnInit {
 
     // Init form group
     this.myForm = this.fb.group({
-      task_name: new FormControl(),
+      task_name: new FormControl(""),
       task_tags: this.myControl,
-      task_visibility: new FormControl(),
-      task_attempts: new FormControl(),
-      task_type: new FormControl(),
-      task_hours: new FormControl(),
-      ch1: new FormControl(),
-      ch2: new FormControl(),
-      ch3: new FormControl(),
-      ch4: new FormControl(),
-      ch5: new FormControl(),
-      ch6: new FormControl(),
-      ch7: new FormControl(),
-      task_author: new FormControl(),
-      task_license: new FormControl(),
-      task_outsource: new FormControl(),
-      task_notes_checker: new FormControl(),
-      task_notes_teacher: new FormControl(),
-      task_notes_student: new FormControl()
+      task_visibility: new FormControl("personal"),
+      task_attempts: new FormControl(3),
+      task_type: new FormControl("indiv"),
+      task_hours: new FormControl(8),
+      ch1: new FormControl(false),
+      ch2: new FormControl(false),
+      ch3: new FormControl(false),
+      ch4: new FormControl(false),
+      ch5: new FormControl(false),
+      ch6: new FormControl(false),
+      ch7: new FormControl(false),
+      task_author: new FormControl("Цифровой прорыв"),
+      task_license: new FormControl("CC0"),
+      task_outsource: new FormControl(""),
+      task_notes_checker: new FormControl(""),
+      task_notes_teacher: new FormControl(""),
+      task_notes_student: new FormControl("")
     })
   }
 
@@ -54,25 +54,27 @@ export class TaskComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  postSpellCheckerData(event: any): void {
-    this.http.get(environment.spellCheckerAPI + '?text=' + event.target.value).subscribe(value => {
-      this.fixSpelling(value, event);
+  postSpellCheckerData(data: any): void {
+    this.http.get(environment.spellCheckerAPI + '?text=' + data.value).subscribe(value => {
+      this.myForm.controls[data.name].setValue(this.fixSpelling(value, data.value));
     },
       error => {
         console.log(error);
       });
   }
-  fixSpelling(value: any, event: any): void {
+  fixSpelling(value: any, data: string): string {
     value.forEach(elem => {
-      event.target.value = event.target.value.replace(elem.word, elem.s[0] || elem.word);
+      data = data.replace(elem.word, elem.s[0] || elem.word);
     });
-  }
-
-  onKey(event: any): void {
-    this.inputText = event.target.value;
+    return data;
   }
 
   onFocusOut(event: any): void {
-    this.postSpellCheckerData(event);
+    this.postSpellCheckerData(event.target);
+  }
+
+  createTask(): void {
+    console.log(this.myForm.value);
+
   }
 }

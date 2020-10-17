@@ -5,7 +5,8 @@
             <mat-form-field>
                 <mat-label>Название задания</mat-label>
                 <input matInput id="task_name" name="task_name" type="text"
-                    placeholder="Напимер, Восстанови текст о морепродуктах" formControlName="task_name">
+                    placeholder="Напимер, Восстанови текст о морепродуктах" formControlName="task_name"
+                    (focusout)="onFocusOut($event)">
             </mat-form-field>
         </div>
 
@@ -56,7 +57,7 @@
             <mat-form-field>
                 <mat-label>Трудоёмкость</mat-label>
                 <input matInput id="task_hours" name="task_hours" type="number" value="8" min="0" max="24"
-                    formControlName="task_hours">
+                    formControlName="task_hours" (focusout)="onFocusOut($event)">
             </mat-form-field>
         </div>
 
@@ -108,7 +109,7 @@
             <mat-form-field>
                 <mat-label>ФИО автора задания</mat-label>
                 <input matInput id="task_author" name="task_author" type="text" placeholder="Название с акка взять"
-                    formControlName="task_author">
+                    formControlName="task_author" (focusout)="onFocusOut($event)">
             </mat-form-field>
         </div>
 
@@ -130,7 +131,7 @@
         <div>
             <mat-form-field>
                 <mat-label>Внешние источники информации</mat-label>
-                <input matInput id="task_outsource" name="task_outsource" type="text" formControlName="task_outsource">
+                <input matInput id="task_outsource" name="task_outsource" type="text" formControlName="task_outsource" (focusout)="onFocusOut($event)">
             </mat-form-field>
         </div>
 
@@ -140,7 +141,7 @@
                 <mat-form-field>
                     <mat-label>Заметки для проверяющего</mat-label>
                     <textarea matInput id="task_notes_checker" name="task_notes_checker" type="text"
-                        formControlName="task_notes_checker"></textarea>
+                        formControlName="task_notes_checker" (focusout)="onFocusOut($event)"></textarea>
                 </mat-form-field>
             </div>
 
@@ -148,7 +149,7 @@
                 <mat-form-field>
                     <mat-label>Заметки для учителя</mat-label>
                     <textarea matInput id="task_notes_teacher" name="task_notes_teacher" type="text"
-                        formControlName="task_notes_teacher"></textarea>
+                        formControlName="task_notes_teacher" (focusout)="onFocusOut($event)"></textarea>
                 </mat-form-field>
             </div>
 
@@ -156,10 +157,12 @@
                 <mat-form-field>
                     <mat-label>Заметки для ученика</mat-label>
                     <textarea matInput id="task_notes_student" name="task_notes_student" type="text"
-                        formControlName="task_notes_student"></textarea>
+                        formControlName="task_notes_student" (focusout)="onFocusOut($event)"></textarea>
                 </mat-form-field>
             </div>
         </div>
 
+        <button mat-raised-button color="primary"
+            (click)="createTask()">Создать</button>
     </form>
 </div>
