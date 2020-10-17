@@ -21,13 +21,21 @@
                 </div>
 
                 <div class="display-grid" class="card-el-shadow display-grid-gap15">
-                    <mat-form-field>
-                        <mat-label>Тэги</mat-label>
-                        <input matInput type="text" placeholder="Выберите один" [formControl]="myControl"
-                            [matAutocomplete]="tags">
-                        <mat-autocomplete #tags="matAutocomplete">
-                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                {{option}}
+                    <mat-form-field class="example-chip-list">
+                        <mat-label>Теги</mat-label>
+                        <mat-chip-list #chipList aria-label="tag selection">
+                            <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable"
+                                (removed)="remove(tag)">
+                                {{tag}}
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                            <input placeholder="New tag..." #tagInput formControlName='task_tags' [matAutocomplete]="auto"
+                                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                            <mat-option *ngFor="let tag of filteredtags | async" [value]="tag">
+                                {{tag}}
                             </mat-option>
                         </mat-autocomplete>
                     </mat-form-field>

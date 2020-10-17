@@ -4,6 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { ElementRef, ViewChild } from '@angular/core';
+import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-task',
@@ -12,22 +16,14 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class TaskComponent implements OnInit {
   myForm: FormGroup;
-
   myControl = new FormControl();
-  options: string[] = ["Раз раз", "Два два", "Три три"];
-  filteredOptions: Observable<string[]>;
 
   constructor(private http: HttpClient, private fb: FormBuilder) { }
   ngOnInit(): void {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
-
     // Init form group
     this.myForm = this.fb.group({
       task_name: new FormControl(""),
-      task_tags: this.myControl,
+      task_tags: new FormControl(""),
       task_visibility: new FormControl("personal"),
       task_attempts: new FormControl(3),
       task_type: new FormControl("indiv"),
@@ -50,11 +46,11 @@ export class TaskComponent implements OnInit {
       level: new FormControl(4),
       description: new FormControl("")
     });
-  }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    this.filteredtags = this.myForm.controls["task_tags"].valueChanges.pipe(
+      startWith(null),
+      map((tag: string | null) => tag ? this._filter(tag) : this.alltags.slice())
+    );
   }
 
   // postSpellCheckerData(data: any): void {
@@ -108,12 +104,55 @@ export class TaskComponent implements OnInit {
         error => {
           console.log(error);
         });
-
     }
   }
 
   createTask(): void {
     console.log(this.myForm.value);
+  }
 
+  selectable = true;
+  removable = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  filteredtags: Observable<string[]>;
+  tags: string[] = ["Раз раз"];
+  alltags: string[] = ["Раз раз", "Два два", "Три три"];
+  @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our tag
+    if ((value || '').trim()) {
+      this.tags.push(value.trim());
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+
+    this.myForm.controls["task_tags"].setValue(null);
+  }
+
+  remove(tag: string): void {
+    const index = this.tags.indexOf(tag);
+
+    if (index >= 0) {
+      this.tags.splice(index, 1);
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.tags.push(event.option.viewValue);
+    this.tagInput.nativeElement.value = '';
+    this.myForm.controls["task_tags"].setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.alltags.filter(tag => tag.toLowerCase().indexOf(filterValue) === 0);
   }
 }
