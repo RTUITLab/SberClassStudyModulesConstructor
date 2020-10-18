@@ -19,8 +19,10 @@
       <mat-divider [vertical]="true"></mat-divider>
       <mat-card-content>
         <p>{{task.grade}} класс</p>
-        <mat-icon>grade</mat-icon><p>{{task.level}}.0</p>
-        <mat-icon>schedule</mat-icon><p>{{task.task_minutes}} мин</p>
+        <mat-icon>grade</mat-icon>
+        <p>{{task.level}}.0</p>
+        <mat-icon>schedule</mat-icon>
+        <p>{{task.task_minutes}} мин</p>
       </mat-card-content>
       <button mat-raised-button color="primary" routerLink="/tasks/{{task.id}}/edit">Редактировать</button>
     </mat-card>
@@ -38,11 +40,12 @@
       <mat-divider [vertical]="true"></mat-divider>
       <mat-card-content>
         <p>{{task.grade}} класс</p>
-        <mat-icon>grade</mat-icon><p>{{task.level}}.0</p>
-        <mat-icon>schedule</mat-icon><p>{{task.task_minutes}} мин</p>
+        <mat-icon>grade</mat-icon>
+        <p>{{task.level}}.0</p>
+        <mat-icon>schedule</mat-icon>
+        <p>{{task.task_minutes}} мин</p>
       </mat-card-content>
       <button mat-raised-button color="primary" routerLink="/tasks/{{task.id}}/edit">Модерировать</button>
     </mat-card>
   </mat-tab>
 </mat-tab-group>
-
