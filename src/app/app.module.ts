@@ -39,6 +39,7 @@ import { EditModulesComponent } from './edit-modules/edit-modules.component';
 import { EditModuleContentComponent } from './edit-modules/edit-module-content/edit-module-content.component';
 import { EditModuleTasksComponent } from './edit-modules/edit-module-tasks/edit-module-tasks.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ModuleAssignmentsComponent } from './module-assignments/module-assignments.component';
 
 
 
@@ -57,7 +58,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     EditTaskComponent,
     EditModulesComponent,
     EditModuleContentComponent,
-    EditModuleTasksComponent
+    EditModuleTasksComponent,
+    ModuleAssignmentsComponent
   ],
   imports: [
     BrowserModule,

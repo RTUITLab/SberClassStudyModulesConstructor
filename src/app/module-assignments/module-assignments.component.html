@@ -1,0 +1,12 @@
+<div class="main-container">
+    <div class="task-card" *ngFor="let asgn of assignments">
+        <mat-card>
+            <b>{{asgn.title}}</b>
+            <div>
+                <span class="user-role">{{asgn.userRole}}</span>
+                <button mat-button *ngIf="(!asgn.isDone && asgn.userRole == currentUser.roleLocalized)">Завершить</button>
+                <span class="done-span" *ngIf="asgn.isDone">Завершено</span>
+            </div>
+        </mat-card>
+    </div>
+</div>

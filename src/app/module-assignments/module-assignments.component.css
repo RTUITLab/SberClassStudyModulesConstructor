@@ -1,0 +1,32 @@
+.main-container {
+    padding: 10px;
+    margin: auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+.task-card {
+    padding-bottom: 14px;
+}
+
+.done-span {
+    float: right;
+    color: indigo;
+    width: 20%;
+    text-align: right;
+    padding-right: 14px;
+}
+
+button {
+    float: right;
+}
+
+span {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.user-role {
+    display: inline-block;
+    width: 75%;
+}

@@ -3,8 +3,46 @@
   "current_user": {
     "id": 0,
     "name": "Главный редактор",
-    "role": "mainEditor"
+    "role": "mainEditor",
+    "roleLocalized": "Главный редактор"
   },
+  "assignments": [
+    {
+      "id": 0,
+      "moduleId": 1,
+      "userRole": "Учитель",
+      "isDone": true,
+      "title": "Создание базы модуля"
+    },
+    {
+      "id": 1,
+      "moduleId": 1,
+      "userRole": "Корректор",
+      "isDone": true,
+      "title": "Правка метериала"
+    },
+    {
+      "id": 2,
+      "moduleId": 1,
+      "userRole": "Методолог",
+      "isDone": false,
+      "title": "Проверка методологии"
+    },
+    {
+      "id": 3,
+      "moduleId": 1,
+      "userRole": "Выпускающий редактор",
+      "isDone": false,
+      "title": "Подтверждение готовности модуля к тестированию"
+    },
+    {
+      "id": 4,
+      "moduleId": 1,
+      "userRole": "Главный редактор",
+      "isDone": false,
+      "title": "Публикация модуля"
+    }
+  ],
   "comments": [
     {
       "taskId": 0,

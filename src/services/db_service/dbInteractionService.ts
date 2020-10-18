@@ -6,6 +6,7 @@ import { Task } from '../../models/Task';
 import { environment } from '../../environments/environment';
 import { Comment } from '../../models/Comment';
 import { Module } from 'src/models/Module';
+import { Assignment } from '../../models/Assignment';
 
 @NgModule({
 })
@@ -34,6 +35,10 @@ export class dbInteractionService {
         } else {
             console.error("Module with id " + id + " not found");
         }
+    }
+
+    async getAssignments(): Promise<Assignment[]> {
+        return await this._http.get<Assignment[]>(`${this._api}/assignments/`).toPromise<Assignment[]>();
     }
 
     async getUsersData(): Promise<User[]> {
