@@ -2,14 +2,17 @@
     <div>
         <a mat-raised-button style="color: #673ab7; margin-left: 10px" routerLink="add-module">Добавить модуль</a>
     </div>
-    <div>
+    <div style="justify-self: end;">
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Notifications">
             <mat-icon [matBadge]="this.countNotifications" matBadgeColor="warn">notifications</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item *ngFor="let notify of currentUsersNotifications">
-                <a routerLink="/tasks/{{notify.taskId}}/edit">{{notify.message}}</a>
-            </button>
+            <div *ngIf="this.countNotifications > 0;else nonotify">
+                <button mat-menu-item *ngFor="let notify of currentUsersNotifications">
+                    <a routerLink="/tasks/{{notify.taskId}}/edit">{{notify.message}}</a>
+                </button>
+            </div>
+            <ng-template #nonotify>Нет уведомлений</ng-template>
         </mat-menu>
     </div>
 </div>

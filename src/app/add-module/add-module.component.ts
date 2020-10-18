@@ -79,10 +79,14 @@ export class AddModuleComponent implements OnInit {
 
   async SaveModule() {
     let lenght = (await this._dbInterService.getModules()).length;
+    console.log(lenght);
     if (lenght == 0)
       lenght++;
-
+    console.log(lenght);
+    
     this.newModule = new Module(this.addModuleForm.value, lenght);
+    console.log(this.newModule);
+    
     this._dbInterService.postData("modules", this.newModule);
     this.router.navigate(['edit-module', this.newModule.id])
   }
