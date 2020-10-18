@@ -26,5 +26,9 @@ export class EditModulesComponent implements OnInit {
         this.currentModule = await this._dbInterService.getModule(id);        
       }
       );
+      
+    setTimeout(async () => {
+      this.currentModule = await this._dbInterService.getModule(this.currentModule.id); 
+    }, 5000);
   }
 }

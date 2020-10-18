@@ -36,6 +36,10 @@ export class dbInteractionService {
             console.error("Module with id " + id + " not found");
         }
     }
+    async getModules(): Promise<Module[]> {
+        let module: Module[] = await this._http.get<Module[]>(`${this._api}/modules`).toPromise<Module[]>();
+        return module;
+    }
 
     async getAssignments(): Promise<Assignment[]> {
         return await this._http.get<Assignment[]>(`${this._api}/assignments/`).toPromise<Assignment[]>();
@@ -60,8 +64,15 @@ export class dbInteractionService {
         return this._http.post(`${this._api}/${reqString}/`, data)
             .toPromise();
     }
-    patchData(reqString: string, data: object){
-        return this._http.patch(`${this._api}/${reqString}/`, data)
-            .toPromise();
-  }
+
+    patchData(reqString: string, data: object) {
+        return this._http.patch(`${this._api}/${reqString}`, data)
+            .toPromise()
+            .catch((er) => console.error(er));
+    }
+    putData(reqString: string, data: object) {
+        return this._http.put(`${this._api}/${reqString}/`, data)
+            .toPromise()
+            .catch((er) => console.error(er));
+    }
 }

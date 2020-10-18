@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { map, startWith, switchMap } from 'rxjs/operators';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ElementRef, ViewChild } from '@angular/core';
 import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {dbInteractionService} from '../../services/db_service/dbInteractionService';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { dbInteractionService } from '../../services/db_service/dbInteractionService';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-task',
@@ -20,9 +21,13 @@ export class TaskComponent implements OnInit {
   myForm: FormGroup;
   myControl = new FormControl();
   private _dbInterService: dbInteractionService;
-  constructor(private http: HttpClient, private fb: FormBuilder, private _snackBar: MatSnackBar, dbis: dbInteractionService) {
+  currentModuleLevelName: any;
+  constructor(private http: HttpClient, private router: Router,
+    private fb: FormBuilder, private _snackBar: MatSnackBar, dbis: dbInteractionService, private route: ActivatedRoute) {
     this._dbInterService = dbis;
+
   }
+  currentModuleId:number;
   ngOnInit(): void {
     // Init form group
     this.myForm = this.fb.group({
@@ -55,6 +60,20 @@ export class TaskComponent implements OnInit {
       startWith(null),
       map((tag: string | null) => tag ? this._filter(tag) : this.alltags.slice())
     );
+    this.route.paramMap.pipe(
+      switchMap(params => params.getAll('mId'))
+    ).subscribe(async data => {
+      let id: number = +data;
+      this.currentModuleId = id;
+    }
+    );
+    this.route.paramMap.pipe(
+      switchMap(params => params.getAll('lName'))
+    ).subscribe(async data => {
+      this.currentModuleLevelName = data.slice(1);
+    }
+    );
+
   }
 
   // postSpellCheckerData(data: any): void {
@@ -117,14 +136,60 @@ export class TaskComponent implements OnInit {
     }
   }
 
-  createTask(): void {
-    this._dbInterService.postData(`tasks/`, this.myForm.value).then(() => {
-      this.openSnackBar('Задание успешно создано!', 'Закрыть');
-    }, err => {
-      console.log(err);
-      this.openSnackBar('Произошла ошибка!', 'Закрыть');
-    });
+  async createTask(): Promise<void> {
+    let moduleLevel = (await this._dbInterService.getModule(this.currentModuleId))[this.currentModuleLevelName];
+    let length;
+    if (this.currentModuleLevelName == "motivatingTask") {
+      if (moduleLevel) {
+        length = moduleLevel.length;
+      }
+      else {
+        length = 0;
+      }
+    } else {
+      if (moduleLevel.tasks) {
+        length = moduleLevel.tasks.length;
+      }
+      else {
+        length = 0;
+      }
+    }
+
+    let newTask = this.myForm.value;
+
+    length++;
+    newTask.id = length;
+
+    let updTask = [];
+    updTask.push(newTask);
+
+    if (this.currentModuleLevelName == "elOfGoal4"
+      || this.currentModuleLevelName == "elOfGoal3"
+      || this.currentModuleLevelName == "elOfGoal2") {
+      if (moduleLevel['tasks'] && moduleLevel['tasks'].length == 1) {
+        moduleLevel['tasks'].push(newTask);
+      }
+      else if (moduleLevel['tasks'] && moduleLevel['tasks'].length == 0) {
+        moduleLevel['tasks'] = updTask;
+      } else if (moduleLevel['tasks'] && moduleLevel['tasks'].length > 1) {
+        console.error("Wrong adding new task");
+      } else {
+        moduleLevel['tasks'] = updTask;
+      }
+      this._dbInterService
+        .patchData(`modules/${this.currentModuleId}`, moduleLevel);
+      this.router.navigate(['edit-module', this.currentModuleId]);
+      return;
+    }
+
+    let uploadData = {};
+    uploadData[this.currentModuleLevelName] = updTask;
+    this._dbInterService
+      .patchData(`modules/${this.currentModuleId}`, uploadData);
+    this.openSnackBar('Задание успешно создано!', 'Закрыть');
+    this.router.navigate(['edit-module', this.currentModuleId])
   }
+
 
   selectable = true;
   removable = true;

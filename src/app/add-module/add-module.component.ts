@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {ElementRef, ViewChild} from '@angular/core';
-import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
-import {MatChipInputEvent} from '@angular/material/chips';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { ElementRef, ViewChild } from '@angular/core';
+import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Module } from './../../models/Module';
 import { dbInteractionService } from 'src/services/db_service/dbInteractionService';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-module',
@@ -22,20 +23,20 @@ export class AddModuleComponent implements OnInit {
   filteredtags: Observable<string[]>;
   tags: string[] = ['История'];
   alltags: string[] = ['История', 'Кодинг', 'Матан'];
-  private _dbInterService:dbInteractionService;
+  private _dbInterService: dbInteractionService;
   private newModule: Module;
 
 
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-    
 
-  constructor(private fb: FormBuilder, dbis: dbInteractionService) {
+
+  constructor(private fb: FormBuilder, dbis: dbInteractionService, private router: Router) {
     this.filteredtags = this.addModuleForm.controls["tags"].valueChanges.pipe(
       startWith(null),
       map((tag: string | null) => tag ? this._filter(tag) : this.alltags.slice()));
-      this._dbInterService = dbis;
-   }
+    this._dbInterService = dbis;
+  }
 
   addModuleForm = this.fb.group({
     visibilitylevel: new FormControl(''),
@@ -76,9 +77,14 @@ export class AddModuleComponent implements OnInit {
 
   }
 
-  SaveModule(){
-    this.newModule = new Module(this.addModuleForm.value);
+  async SaveModule() {
+    let lenght = (await this._dbInterService.getModules()).length;
+    if (lenght == 0)
+      lenght++;
+
+    this.newModule = new Module(this.addModuleForm.value, lenght);
     this._dbInterService.postData("modules", this.newModule);
+    this.router.navigate(['edit-module', this.newModule.id])
   }
 
   add(event: MatChipInputEvent): void {

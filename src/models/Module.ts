@@ -1,10 +1,8 @@
 import { Task } from './Task';
 
 export class Module {
-    private static nums: number = 0;
-    constructor(obj: any) {
-        this.id = Module.nums;
-        Module.nums++;
+    constructor(obj: any, numId:number) {
+        this.id = numId;
         this.visibilitylevel = obj?.visibilitylevel;
         this.moduleСoverImage = obj?.moduleСoverImage;
         this.moduleName = obj?.moduleName;
@@ -36,6 +34,7 @@ export class Module {
             goalElementDescription: obj?.elOfGoal4?.goalElementDescription,
             tasks: []
         };
+        this.motivatingTask = [];
     }
     id: number;
     visibilitylevel: string;
@@ -54,7 +53,7 @@ export class Module {
     generalConceptOfTheModule: string;
     typicalDistributionOfAssignmentsByLessons: string;
     possibleDifficultiesMisconceptionsAndWaysToOvercomeThem: string;
-    motivatingTask: Task;
+    motivatingTask: Task[];
     elOfGoal2: {
         goalElementDescription: string;
         anExampleOfAchievingAGoal: string;
