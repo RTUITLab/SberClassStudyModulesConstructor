@@ -11,7 +11,7 @@ import { User } from 'src/models/user';
 })
 export class TaskDashboardComponent implements OnInit {
   private _dbInterService: dbInteractionService;
-  tasks: Task[];
+  tasks: Task[] = [];
   tasksForModeration: Task[];
   currentUser: User;
   constructor(dbis: dbInteractionService) {
@@ -24,7 +24,11 @@ export class TaskDashboardComponent implements OnInit {
     this.tasksForModeration = this.filterTasksForModeration(this.tasks);
   }
   async getAllTasks(){
-    this.tasks = await this._dbInterService.getAllTasks();
+    await (await this._dbInterService.getModules()).forEach(el => {
+      if (el.motivatingTask && el.motivatingTask.length > 0){
+        this.tasks.push(el.motivatingTask[0]);
+      }
+    })
   }
   filterTasksForModeration(tasks: Task[]): Task[] {
     return tasks.filter(task => task.moderation.expertsUserIds.includes(this.currentUser.id));
