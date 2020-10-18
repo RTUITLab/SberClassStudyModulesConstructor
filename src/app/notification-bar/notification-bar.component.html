@@ -6,8 +6,7 @@
         </button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item *ngFor="let notify of currentUsersNotifications">
-                <!-- TODO paste router link to module/ task -->
-                <a routerLink="add-module">{{notify.message}}</a>
+                <a routerLink="/tasks/{{notify.taskId}}/edit">{{notify.message}}</a>
             </button>
         </mat-menu>
     </div>

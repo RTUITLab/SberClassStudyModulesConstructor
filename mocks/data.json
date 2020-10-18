@@ -55,18 +55,21 @@
       "id": 34430,
       "userId": 0,
       "userRole": "",
+      "taskId": 0,
       "message": "Вы призваны к заданию №0"
     },
     {
       "id": 5238,
       "userId": 3,
       "userRole": "",
+      "taskId": 1,
       "message": "Вы призваны к модулю Модуль 1"
     },
     {
       "id": 34429,
       "userId": 3,
       "userRole": "",
+      "taskId": 0,
       "message": "Вы призваны к заданию №0"
     }
   ],
@@ -99,6 +102,10 @@
       "moderation": {
         "expertsUserIds": [
           0,
+          3,
+          3,
+          3,
+          3,
           3
         ]
       }

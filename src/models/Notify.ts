@@ -7,5 +7,6 @@ export class Notify {
   id: number;
   userId: number;
   userRole: string;
+  taskId: number;
   message: string;
 }

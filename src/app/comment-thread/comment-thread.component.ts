@@ -80,6 +80,7 @@ export class CommentThreadComponent implements OnInit {
     let notification = Object.assign( new Notify(), {
       id: this.getRandomInt(),
       userId: this.selectedInviteId,
+      taskId: this.currentTaskId,
       userRole: "",
       message: `Вы призваны к заданию №${this.currentTaskId}`
     });

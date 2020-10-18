@@ -48,21 +48,11 @@ export class dbInteractionService {
         return await this._http.get<Task[]>(`${this._api}/tasks`).toPromise<Task[]>();
     }
 
-  async getTask(taskID: number):Promise<Task>{
+  async getTask(taskID: number): Promise<Task>{
       return await this._http.get<Task>(`${this._api}/tasks/${taskID}`).toPromise<Task>();
   }
     postData(reqString: string, data: object){
         return this._http.post(`${this._api}/${reqString}/`, data)
-            .toPromise();
-    }
-
-    patchData(reqString: string, data: object) {
-        return this._http.patch(`${this._api}/${reqString}`, data)
-            .toPromise()
-            .catch((er) => console.error(er));
-    }
-    putData(reqString: string, data: object){
-        return this._http.put(`${this._api}/${reqString}/`, data)
             .toPromise();
     }
     patchData(reqString: string, data: object){
