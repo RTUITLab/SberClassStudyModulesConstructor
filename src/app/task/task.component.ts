@@ -8,6 +8,8 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ElementRef, ViewChild } from '@angular/core';
 import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {dbInteractionService} from '../../services/db_service/dbInteractionService';
 
 @Component({
   selector: 'app-task',
@@ -17,8 +19,10 @@ import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material
 export class TaskComponent implements OnInit {
   myForm: FormGroup;
   myControl = new FormControl();
-
-  constructor(private http: HttpClient, private fb: FormBuilder) { }
+  private _dbInterService: dbInteractionService;
+  constructor(private http: HttpClient, private fb: FormBuilder, private _snackBar: MatSnackBar, dbis: dbInteractionService) {
+    this._dbInterService = dbis;
+  }
   ngOnInit(): void {
     // Init form group
     this.myForm = this.fb.group({
@@ -61,6 +65,12 @@ export class TaskComponent implements OnInit {
   //       console.log(error);
   //     });
   // }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 5000,
+    });
+  }
 
   fixSpelling(value: any, data: string): string {
     value.forEach(elem => {
@@ -108,7 +118,12 @@ export class TaskComponent implements OnInit {
   }
 
   createTask(): void {
-    console.log(this.myForm.value);
+    this._dbInterService.postData(`tasks/`, this.myForm.value).then(() => {
+      this.openSnackBar('Задание успешно создано!', 'Закрыть');
+    }, err => {
+      console.log(err);
+      this.openSnackBar('Произошла ошибка!', 'Закрыть');
+    });
   }
 
   selectable = true;

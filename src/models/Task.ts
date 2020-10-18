@@ -28,4 +28,7 @@ export class Task {
   task_tags: string;
   task_type: string;
   task_visibility: string;
+  moderation: {
+    expertsUserIds: number[]
+  };
 }

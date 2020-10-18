@@ -19,6 +19,13 @@
       "userId": 1,
       "userName": "Учитель",
       "message": "Хорошо, поправила"
+    },
+    {
+      "taskId": "0",
+      "id": 48184,
+      "userId": 0,
+      "userName": "Главный редактор",
+      "message": "что вы думаете?"
     }
   ],
   "users": [
@@ -45,33 +52,88 @@
   ],
   "notifications": [
     {
-      "id": 0,
+      "id": 34430,
       "userId": 0,
-      "userRole": "mainEditor",
-      "message": "Вы призваны к модулю (название)"
+      "userRole": "",
+      "message": "Вы призваны к заданию №0"
+    },
+    {
+      "id": 5238,
+      "userId": 3,
+      "userRole": "",
+      "message": "Вы призваны к модулю Модуль 1"
+    },
+    {
+      "id": 34429,
+      "userId": 3,
+      "userRole": "",
+      "message": "Вы призваны к заданию №0"
     }
   ],
   "tasks": [
     {
+      "task_name": "Подготовка к контрольной работе",
+      "ch1": true,
+      "ch2": true,
+      "ch3": true,
+      "ch4": false,
+      "ch5": false,
+      "ch6": false,
+      "ch7": false,
+      "description": "поседите полежите",
+      "grade": 8,
       "id": 0,
-      "subject": "Математика",
-      "task_name": "Сложный пример на арифметику",
-      "grade": 11,
-      "level": "4",
-      "task_minutes": 30,
-      "description": "сложите 2+2)"
-    },
-    {
-      "id": 1,
+      "level": 4,
       "subject": "Русский язык",
-      "task_name": "Найдите орфографическую ошибку",
-      "grade": 10,
-      "level": "4",
-      "task_minutes": 40,
-      "description": "найдие ошибку малоко)"
+      "task_attempts": 1,
+      "task_author": "Цифровой прорыв",
+      "task_minutes": 15,
+      "task_license": "CC0",
+      "task_notes_checker": "гуд",
+      "task_notes_student": "топ",
+      "task_notes_teacher": "круто",
+      "task_outsource": "ссылки",
+      "task_tags": "Раз раз",
+      "task_type": "indiv",
+      "task_visibility": "personal",
+      "moderation": {
+        "expertsUserIds": [
+          0,
+          3
+        ]
+      }
     },
     {
-      "task_name": "Выучи ненужное)",
+      "task_name": "Очень увлекательное и потрясающе интересное задание",
+      "ch1": true,
+      "ch2": true,
+      "ch3": true,
+      "ch4": false,
+      "ch5": false,
+      "ch6": true,
+      "ch7": true,
+      "description": "Сварить пельмени",
+      "grade": 11,
+      "id": 1,
+      "level": 4,
+      "subject": "Физика",
+      "task_attempts": 1,
+      "task_author": "Цифровой прорыв",
+      "task_minutes": 15,
+      "task_license": "CC0",
+      "task_notes_checker": "да",
+      "task_notes_student": "я",
+      "task_notes_teacher": "а шо",
+      "task_outsource": "интернэт",
+      "task_tags": "Два два",
+      "task_type": "indiv",
+      "task_visibility": "personal",
+      "moderation": {
+        "expertsUserIds": []
+      }
+    },
+    {
+      "task_name": "Ni hao!",
       "ch1": true,
       "ch2": true,
       "ch3": true,
@@ -94,7 +156,10 @@
       "task_outsource": "сыр",
       "task_tags": "Два два",
       "task_type": "indiv",
-      "task_visibility": "personal"
+      "task_visibility": "personal",
+      "moderation": {
+        "expertsUserIds": []
+      }
     }
   ],
   "modules": [
@@ -333,6 +398,40 @@
       "elOfGoal4": {
         "anExampleOfAchievingAGoal": "11",
         "goalElementDescription": "1",
+        "tasks": []
+      }
+    },
+    {
+      "id": 8,
+      "visibilitylevel": "personal",
+      "moduleСoverImage": "",
+      "moduleName": "123",
+      "smallPictureForTheList": "",
+      "tags": "",
+      "subject": "Coding",
+      "class": "1p",
+      "additionalModule": "",
+      "laborIntensity": 123,
+      "basicIdea": "123",
+      "problematicQuestion": "123",
+      "instructionsForTheTeacher": "",
+      "moduleСover": "",
+      "generalConceptOfTheModule": "13123",
+      "typicalDistributionOfAssignmentsByLessons": "123",
+      "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "123",
+      "elOfGoal2": {
+        "anExampleOfAchievingAGoal": "123",
+        "goalElementDescription": "123",
+        "tasks": []
+      },
+      "elOfGoal3": {
+        "anExampleOfAchievingAGoal": "123",
+        "goalElementDescription": "123",
+        "tasks": []
+      },
+      "elOfGoal4": {
+        "anExampleOfAchievingAGoal": "123",
+        "goalElementDescription": "123123",
         "tasks": []
       }
     }

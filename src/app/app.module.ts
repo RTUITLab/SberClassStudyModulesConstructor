@@ -35,6 +35,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { TaskDashboardComponent } from './task-dashboard/task-dashboard.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -77,7 +78,8 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     MatDividerModule,
     MatChipsModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

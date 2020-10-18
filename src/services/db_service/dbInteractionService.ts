@@ -42,12 +42,14 @@ export class dbInteractionService {
   }
     postData(reqString: string, data: object){
         return this._http.post(`${this._api}/${reqString}/`, data)
-            .toPromise()
-            .catch((er)=>console.error(er));
+            .toPromise();
     }
     putData(reqString: string, data: object){
-    return this._http.put(`${this._api}/${reqString}/`, data)
-      .toPromise()
-      .catch((er)=>console.error(er));
+        return this._http.put(`${this._api}/${reqString}/`, data)
+            .toPromise();
     }
+    patchData(reqString: string, data: object){
+        return this._http.patch(`${this._api}/${reqString}/`, data)
+            .toPromise();
+  }
 }

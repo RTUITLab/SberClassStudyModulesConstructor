@@ -3,6 +3,7 @@ import { Comment } from '../../models/Comment';
 import { dbInteractionService } from '../../services/db_service/dbInteractionService'
 import { Notify } from 'src/models/Notify';
 import { User } from 'src/models/user';
+import {Task} from '../../models/Task';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class CommentThreadComponent implements OnInit {
   @Input() currentTaskId: number = 0;
 
   currentUser: User;
+  currentTask: Task;
   users: Array<User>;
   comments: Array<Comment>;
 
@@ -24,7 +26,7 @@ export class CommentThreadComponent implements OnInit {
   selectedInviteId: number;
 
   private _dbInterService: dbInteractionService;
-  
+
   constructor(dbis: dbInteractionService) {
     this._dbInterService = dbis;
   }
@@ -35,6 +37,7 @@ export class CommentThreadComponent implements OnInit {
 
   async loadData(){
     this.currentUser = await this._dbInterService.getUserData();
+    this.currentTask = await this._dbInterService.getTask(this.currentTaskId);
     let allComments = await this._dbInterService.getComments(0);
     let commentsIds = allComments.map( comment => comment.userName );
 
@@ -78,9 +81,13 @@ export class CommentThreadComponent implements OnInit {
       id: this.getRandomInt(),
       userId: this.selectedInviteId,
       userRole: "",
-      message: "Вы призваны к модулю Модуль 1"
+      message: `Вы призваны к заданию №${this.currentTaskId}`
     });
     await this._dbInterService.postData("notifications", notification);
+    this.addModeratorToTask();
   }
-
+  async addModeratorToTask(): Promise<void> {
+    this.currentTask.moderation.expertsUserIds.push(this.selectedInviteId);
+    await this._dbInterService.patchData(`tasks/${this.currentTaskId}`, this.currentTask);
+  }
 }
