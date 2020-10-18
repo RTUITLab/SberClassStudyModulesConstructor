@@ -12,4 +12,12 @@
       </ng-template>
       <app-edit-module-tasks *ngIf = "this.currentModule" [currentModule]="this.currentModule"></app-edit-module-tasks>
     </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Статус работы
+      </ng-template>
+      <app-module-assignments *ngIf = "this.currentModule" [currentModule]="this.currentModule"></app-module-assignments>
+    </mat-tab>
+
   </mat-tab-group>

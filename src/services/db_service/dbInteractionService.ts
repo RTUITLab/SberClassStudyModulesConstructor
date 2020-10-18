@@ -6,6 +6,7 @@ import { Task } from '../../models/Task';
 import { environment } from '../../environments/environment';
 import { Comment } from '../../models/Comment';
 import { Module } from 'src/models/Module';
+import { Assignment } from '../../models/Assignment';
 
 @NgModule({
 })
@@ -38,6 +39,10 @@ export class dbInteractionService {
     async getModules(): Promise<Module[]> {
         let module: Module[] = await this._http.get<Module[]>(`${this._api}/modules`).toPromise<Module[]>();
         return module;
+    }
+
+    async getAssignments(): Promise<Assignment[]> {
+        return await this._http.get<Assignment[]>(`${this._api}/assignments/`).toPromise<Assignment[]>();
     }
 
     async getUsersData(): Promise<User[]> {

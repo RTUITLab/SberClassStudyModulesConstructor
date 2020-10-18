@@ -1,11 +1,71 @@
 {
   "data": [],
   "current_user": {
-    "id": 3,
-    "name": "Выпускающий редактор",
-    "role": "finalEditor"
+    "id": 0,
+    "name": "Главный редактор",
+    "role": "mainEditor",
+    "roleLocalized": "Главный редактор"
   },
-  "comments": [],
+  "assignments": [
+    {
+      "id": 0,
+      "moduleId": 1,
+      "userRole": "Учитель",
+      "isDone": true,
+      "title": "Создание базы модуля"
+    },
+    {
+      "id": 1,
+      "moduleId": 1,
+      "userRole": "Корректор",
+      "isDone": true,
+      "title": "Правка метериала"
+    },
+    {
+      "id": 2,
+      "moduleId": 1,
+      "userRole": "Методолог",
+      "isDone": false,
+      "title": "Проверка методологии"
+    },
+    {
+      "id": 3,
+      "moduleId": 1,
+      "userRole": "Выпускающий редактор",
+      "isDone": false,
+      "title": "Подтверждение готовности модуля к тестированию"
+    },
+    {
+      "id": 4,
+      "moduleId": 1,
+      "userRole": "Главный редактор",
+      "isDone": "true",
+      "title": "Публикация модуля"
+    }
+  ],
+  "comments": [
+    {
+      "taskId": 0,
+      "id": 0,
+      "userId": 2,
+      "userName": "Корректор",
+      "message": "Поправьте этот момент"
+    },
+    {
+      "taskId": 0,
+      "id": 1,
+      "userId": 1,
+      "userName": "Учитель",
+      "message": "Хорошо, поправила"
+    },
+    {
+      "taskId": "0",
+      "id": 48184,
+      "userId": 0,
+      "userName": "Главный редактор",
+      "message": "что вы думаете?"
+    }
+  ],
   "users": [
     {
       "id": 0,
@@ -58,7 +118,6 @@
       "moderation": {
         "expertsUserIds": [
           0,
-          3,
           3,
           3,
           3,
@@ -125,6 +184,110 @@
       "moderation": {
         "expertsUserIds": []
       }
+    },
+    {
+      "task_name": "",
+      "task_tags": "",
+      "task_visibility": "personal",
+      "task_attempts": 3,
+      "task_type": "indiv",
+      "task_minutes": 60,
+      "ch1": false,
+      "ch2": false,
+      "ch3": false,
+      "ch4": false,
+      "ch5": false,
+      "ch6": false,
+      "ch7": false,
+      "task_author": "Цифровой прорыв",
+      "task_license": "CC0",
+      "task_outsource": "",
+      "task_notes_checker": "",
+      "task_notes_teacher": "",
+      "task_notes_student": "",
+      "grade": 9,
+      "subject": "",
+      "level": 4,
+      "description": "",
+      "id": 3
+    },
+    {
+      "task_name": "fsdfsd",
+      "task_tags": "",
+      "task_visibility": "personal",
+      "task_attempts": 3,
+      "task_type": "indiv",
+      "task_minutes": 60,
+      "ch1": false,
+      "ch2": false,
+      "ch3": false,
+      "ch4": false,
+      "ch5": false,
+      "ch6": true,
+      "ch7": false,
+      "task_author": "Цифровой прорыв",
+      "task_license": "CC0",
+      "task_outsource": "sdf",
+      "task_notes_checker": "sdf",
+      "task_notes_teacher": "fsd",
+      "task_notes_student": "fsd",
+      "grade": 9,
+      "subject": "",
+      "level": 4,
+      "description": "fsd",
+      "id": 4
+    },
+    {
+      "task_name": "",
+      "task_tags": null,
+      "task_visibility": "personal",
+      "task_attempts": 3,
+      "task_type": "indiv",
+      "task_minutes": 60,
+      "ch1": false,
+      "ch2": false,
+      "ch3": false,
+      "ch4": false,
+      "ch5": false,
+      "ch6": false,
+      "ch7": false,
+      "task_author": "Цифровой прорыв",
+      "task_license": "CC0",
+      "task_outsource": "",
+      "task_notes_checker": "",
+      "task_notes_teacher": "",
+      "task_notes_student": "",
+      "grade": 9,
+      "subject": "",
+      "level": 4,
+      "description": "",
+      "id": 5
+    },
+    {
+      "task_name": "llll",
+      "task_tags": "",
+      "task_visibility": "personal",
+      "task_attempts": 3,
+      "task_type": "indiv",
+      "task_minutes": 60,
+      "ch1": false,
+      "ch2": false,
+      "ch3": true,
+      "ch4": false,
+      "ch5": false,
+      "ch6": false,
+      "ch7": false,
+      "task_author": "Цифровой прорыв",
+      "task_license": "CC0",
+      "task_outsource": "",
+      "task_notes_checker": "",
+      "task_notes_teacher": "lll",
+      "task_notes_student": "l",
+      "grade": 9,
+      "subject": "",
+      "level": 4,
+      "description": "",
+      "id": 6
     }
   ],
   "modules": [
