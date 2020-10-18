@@ -4,6 +4,7 @@ import { dbInteractionService } from '../../services/db_service/dbInteractionSer
 import { Notify } from 'src/models/Notify';
 import { User } from 'src/models/user';
 import {Task} from '../../models/Task';
+import { MatSnackBar } from '@angular/material/snack-bar/';
 
 
 @Component({
@@ -26,9 +27,11 @@ export class CommentThreadComponent implements OnInit {
   selectedInviteId: number;
 
   private _dbInterService: dbInteractionService;
+  private _snackBar: MatSnackBar;
 
-  constructor(dbis: dbInteractionService) {
+  constructor(dbis: dbInteractionService, private snk: MatSnackBar) {
     this._dbInterService = dbis;
+    this._snackBar = snk;
   }
 
   async ngOnInit(): Promise<void> {
@@ -90,5 +93,8 @@ export class CommentThreadComponent implements OnInit {
   async addModeratorToTask(): Promise<void> {
     this.currentTask.moderation.expertsUserIds.push(this.selectedInviteId);
     await this._dbInterService.patchData(`tasks/${this.currentTaskId}`, this.currentTask);
+    this._snackBar.open('Приглашение успешно отправлено!', 'Закрыть', {
+      duration: 5000,
+    });
   }
 }
