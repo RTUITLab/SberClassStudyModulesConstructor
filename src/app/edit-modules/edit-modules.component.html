@@ -1,0 +1,15 @@
+<mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Редактирование содержания модуля
+      </ng-template>
+      <app-edit-module-content *ngIf = "this.currentModule" [currentModule]="this.currentModule"></app-edit-module-content>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Редактирование заданий модуля
+      </ng-template>
+      <app-edit-module-tasks *ngIf = "this.currentModule" [currentModule]="this.currentModule"></app-edit-module-tasks>
+    </mat-tab>
+  </mat-tab-group>

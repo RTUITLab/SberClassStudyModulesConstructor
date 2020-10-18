@@ -1,0 +1,18 @@
+.display-grid{
+    display: grid;
+    grid-auto-rows: auto;
+    grid-row-gap:30px;
+}
+.display-grid-gap15{
+    display: grid;
+    grid-auto-rows: auto;
+    grid-row-gap:15px;
+}
+.p-lr-100{
+    padding: 10px 100px
+}
+.buttonsPanel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 50px;
+}

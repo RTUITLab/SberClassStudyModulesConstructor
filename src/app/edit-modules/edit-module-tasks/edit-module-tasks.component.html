@@ -1,0 +1,117 @@
+<form *ngIf="currentModule; else loading">
+    <div class="display-grid p-lr-100">
+        <h1>Заполните общие данные о модуле</h1>
+        <div class="display-grid card-el-shadow display-grid-gap15">
+            <h2>Мотивирующее задание</h2>
+            <div *ngIf="currentModule.motivatingTask; else showError">
+                <div class="taskElement">
+                    <div>{{currentModule.motivatingTask.task_name}}</div>
+                    <a [routerLink]="['tasks/',currentModule.motivatingTask.id, '/edit']">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <button (click)="deleteMotivTask('motivatingTask')">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <ng-template #showError>
+                <p class="error">
+                    Добавьте мотивирующее задание
+                </p>
+            </ng-template>
+            <a [routerLink]="[]">
+                <button mat-flat-button color="primary" >
+                    Создать новое задание
+                </button>
+            </a>
+        </div>
+        <div class="display-grid card-el-shadow display-grid-gap15">
+            <h2>Уровень 4.0</h2>
+            <p>ЭЛЕМЕНТ УЧЕБНОЙ ЦЕЛИ 4.0</p>
+            <p>{{currentModule.elOfGoal4.goalElementDescription}}</p>
+            <div *ngIf="currentModule.elOfGoal4.tasks; else showError4">
+                <div class="taskElement" *ngFor="let task of currentModule.elOfGoal4.tasks">
+                    <div>{{task.task_name}}</div>
+                    <a [routerLink]="['tasks/',task.id, '/edit']">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <button (click)="deleteTaskOflStudyGoal('elOfGoal4')">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <ng-template #showError4>
+                <p class="error">
+                    Добавьте учебное и проверочное задания уровня 4.0
+                </p>
+            </ng-template>
+            <a [routerLink]="[]">
+                <button mat-flat-button color="primary" >
+                    Создать новое задание
+                </button>
+            </a>
+        </div>
+        <div class="display-grid card-el-shadow display-grid-gap15">
+            <h2>Уровень 3.0</h2>
+            <p>ЭЛЕМЕНТ УЧЕБНОЙ ЦЕЛИ 3.0</p>
+            <p>{{currentModule.elOfGoal3.goalElementDescription}}</p>
+            <div *ngIf="currentModule.elOfGoal4.tasks; else showError3">
+                <div class="taskElement" *ngFor="let task of currentModule.elOfGoal3.tasks">
+                    <div>{{task.task_name}}</div>
+                    <a [routerLink]="['tasks/',task.id, '/edit']">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <button (click)="deleteTaskOflStudyGoal('elOfGoal3')">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <ng-template #showError3>
+                <p class="error">
+                    Добавьте учебное и проверочное задания уровня 3.0
+                </p>
+            </ng-template>
+            <a [routerLink]="[]">
+                <button mat-flat-button color="primary" >
+                    Создать новое задание
+                </button>
+            </a>
+        </div>
+        <div class="display-grid card-el-shadow display-grid-gap15">
+            <h2>Уровень 2.0</h2>
+            <p>ЭЛЕМЕНТ УЧЕБНОЙ ЦЕЛИ 2.0</p>
+            <p>{{currentModule.elOfGoal4.goalElementDescription}}</p>
+            <div *ngIf="currentModule.elOfGoal2.tasks; else showError2">
+                <div class="taskElement" *ngFor="let task of currentModule.elOfGoal4.tasks">
+                    <div>{{task.task_name}}</div>
+                    <a [routerLink]="['tasks/',task.id, '/edit']">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <button (click)="deleteTaskOflStudyGoal('elOfGoal2')">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <ng-template #showError2>
+                <p class="error">
+                    Добавьте учебное и проверочное задания уровня 2.0
+                </p>
+            </ng-template>
+            <a [routerLink]="[]">
+                <button mat-flat-button color="primary" >
+                    Создать новое задание
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <div class="buttonsPanel">
+        <button mat-flat-button color="primary" routerLink="">
+            Назад
+        </button>
+    </div>
+</form>
+
+<ng-template #loading>
+    <p>Loading module...</p>
+</ng-template>

@@ -1,0 +1,20 @@
+.mat-card {
+  display: flex;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  border-left: 5px solid green;
+}
+.mat-card-content {
+  margin-left: 10px;
+  display: flex;
+}
+.mat-card-header {
+  width: 400px;
+}
+.mat-card-content p {
+  margin-right: 20px;
+}
+button {
+  margin-left: auto;
+}

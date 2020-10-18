@@ -1,0 +1,443 @@
+{
+  "data": [],
+  "current_user": {
+    "id": 0,
+    "name": "Главный редактор",
+    "role": "mainEditor"
+  },
+  "comments": [
+    {
+      "taskId": 0,
+      "id": 0,
+      "userId": 2,
+      "userName": "Корректор",
+      "message": "Поправьте этот момент"
+    },
+    {
+      "taskId": 0,
+      "id": 1,
+      "userId": 1,
+      "userName": "Учитель",
+      "message": "Хорошо, поправила"
+    },
+    {
+      "taskId": "0",
+      "id": 48184,
+      "userId": 0,
+      "userName": "Главный редактор",
+      "message": "что вы думаете?"
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "Главный редактор",
+      "role": "mainEditor"
+    },
+    {
+      "id": 1,
+      "name": "Учитель",
+      "role": "teacher"
+    },
+    {
+      "id": 2,
+      "name": "Корректор",
+      "role": "corrector"
+    },
+    {
+      "id": 3,
+      "name": "Выпускающий редактор",
+      "role": "finalEditor"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 34430,
+      "userId": 0,
+      "userRole": "",
+      "taskId": 0,
+      "message": "Вы призваны к заданию №0"
+    },
+    {
+      "id": 5238,
+      "userId": 3,
+      "userRole": "",
+      "taskId": 1,
+      "message": "Вы призваны к модулю Модуль 1"
+    },
+    {
+      "id": 34429,
+      "userId": 3,
+      "userRole": "",
+      "taskId": 0,
+      "message": "Вы призваны к заданию №0"
+    }
+  ],
+  "tasks": [
+    {
+      "task_name": "Подготовка к контрольной работе",
+      "ch1": true,
+      "ch2": true,
+      "ch3": true,
+      "ch4": false,
+      "ch5": false,
+      "ch6": false,
+      "ch7": false,
+      "description": "поседите полежите",
+      "grade": 8,
+      "id": 0,
+      "level": 4,
+      "subject": "Русский язык",
+      "task_attempts": 1,
+      "task_author": "Цифровой прорыв",
+      "task_minutes": 15,
+      "task_license": "CC0",
+      "task_notes_checker": "гуд",
+      "task_notes_student": "топ",
+      "task_notes_teacher": "круто",
+      "task_outsource": "ссылки",
+      "task_tags": "Раз раз",
+      "task_type": "indiv",
+      "task_visibility": "personal",
+      "moderation": {
+        "expertsUserIds": [
+          0,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      }
+    },
+    {
+      "task_name": "Очень увлекательное и потрясающе интересное задание",
+      "ch1": true,
+      "ch2": true,
+      "ch3": true,
+      "ch4": false,
+      "ch5": false,
+      "ch6": true,
+      "ch7": true,
+      "description": "Сварить пельмени",
+      "grade": 11,
+      "id": 1,
+      "level": 4,
+      "subject": "Физика",
+      "task_attempts": 1,
+      "task_author": "Цифровой прорыв",
+      "task_minutes": 15,
+      "task_license": "CC0",
+      "task_notes_checker": "да",
+      "task_notes_student": "я",
+      "task_notes_teacher": "а шо",
+      "task_outsource": "интернэт",
+      "task_tags": "Два два",
+      "task_type": "indiv",
+      "task_visibility": "personal",
+      "moderation": {
+        "expertsUserIds": []
+      }
+    },
+    {
+      "task_name": "Ni hao!",
+      "ch1": true,
+      "ch2": true,
+      "ch3": true,
+      "ch4": true,
+      "ch5": true,
+      "ch6": true,
+      "ch7": true,
+      "description": "Выучи выучи выучи",
+      "grade": 9,
+      "id": 2,
+      "level": 4,
+      "subject": "Физика",
+      "task_attempts": 7,
+      "task_author": "Цифровой прорыв",
+      "task_minutes": 88,
+      "task_license": "CC0",
+      "task_notes_checker": "11",
+      "task_notes_student": "33",
+      "task_notes_teacher": "22",
+      "task_outsource": "сыр",
+      "task_tags": "Два два",
+      "task_type": "indiv",
+      "task_visibility": "personal",
+      "moderation": {
+        "expertsUserIds": []
+      }
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "visibilitylevel": "personal",
+      "moduleСoverImage": "",
+      "moduleName": "1",
+      "smallPictureForTheList": "",
+      "tags": "",
+      "subject": "Coding",
+      "class": "1p",
+      "additionalModule": "",
+      "laborIntensity": 1,
+      "basicIdea": "1",
+      "problematicQuestion": "1",
+      "instructionsForTheTeacher": "",
+      "moduleСover": "",
+      "generalConceptOfTheModule": "1",
+      "typicalDistributionOfAssignmentsByLessons": "11",
+      "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "1",
+      "elOfGoal2": {
+        "goalElementDescription": "1",
+        "anExampleOfAchievingAGoal": "1"
+      },
+      "elOfGoal3": {
+        "goalElementDescription": "11",
+        "anExampleOfAchievingAGoal": "1"
+      },
+      "elOfGoal4": {
+        "goalElementDescription": "1",
+        "anExampleOfAchievingAGoal": "11"
+      }
+    },
+    {
+      "id": 2,
+      "visibilitylevel": "",
+      "moduleСoverImage": "",
+      "moduleName": "1",
+      "smallPictureForTheList": "",
+      "tags": "",
+      "subject": "Coding",
+      "class": "1p",
+      "additionalModule": "",
+      "laborIntensity": 1,
+      "basicIdea": "1",
+      "problematicQuestion": "1",
+      "instructionsForTheTeacher": "",
+      "moduleСover": "",
+      "generalConceptOfTheModule": "1",
+      "typicalDistributionOfAssignmentsByLessons": "11",
+      "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "1",
+      "elOfGoal2": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "1",
+        "tasks": []
+      },
+      "elOfGoal3": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "11",
+        "tasks": []
+      },
+      "elOfGoal4": {
+        "anExampleOfAchievingAGoal": "11",
+        "goalElementDescription": "1",
+        "tasks": []
+      }
+    },
+    {
+      "id": 3,
+      "visibilitylevel": "",
+      "moduleСoverImage": "",
+      "moduleName": "1",
+      "smallPictureForTheList": "",
+      "tags": "",
+      "subject": "Coding",
+      "class": "1p",
+      "additionalModule": "",
+      "laborIntensity": 1,
+      "basicIdea": "1",
+      "problematicQuestion": "1",
+      "instructionsForTheTeacher": "",
+      "moduleСover": "",
+      "generalConceptOfTheModule": "1",
+      "typicalDistributionOfAssignmentsByLessons": "11",
+      "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "1",
+      "elOfGoal2": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "1",
+        "tasks": []
+      },
+      "elOfGoal3": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "11",
+        "tasks": []
+      },
+      "elOfGoal4": {
+        "anExampleOfAchievingAGoal": "11",
+        "goalElementDescription": "1",
+        "tasks": []
+      }
+    },
+    {
+      "id": 4,
+      "visibilitylevel": "",
+      "moduleСoverImage": "",
+      "moduleName": "1",
+      "smallPictureForTheList": "",
+      "tags": "",
+      "subject": "Coding",
+      "class": "1p",
+      "additionalModule": "",
+      "laborIntensity": 1,
+      "basicIdea": "1",
+      "problematicQuestion": "1",
+      "instructionsForTheTeacher": "",
+      "moduleСover": "",
+      "generalConceptOfTheModule": "1",
+      "typicalDistributionOfAssignmentsByLessons": "11",
+      "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "1",
+      "elOfGoal2": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "1",
+        "tasks": []
+      },
+      "elOfGoal3": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "11",
+        "tasks": []
+      },
+      "elOfGoal4": {
+        "anExampleOfAchievingAGoal": "11",
+        "goalElementDescription": "1",
+        "tasks": []
+      }
+    },
+    {
+      "id": 5,
+      "visibilitylevel": "",
+      "moduleСoverImage": "",
+      "moduleName": "1",
+      "smallPictureForTheList": "",
+      "tags": "",
+      "subject": "Coding",
+      "class": "1p",
+      "additionalModule": "",
+      "laborIntensity": 1,
+      "basicIdea": "1",
+      "problematicQuestion": "1",
+      "instructionsForTheTeacher": "",
+      "moduleСover": "",
+      "generalConceptOfTheModule": "1",
+      "typicalDistributionOfAssignmentsByLessons": "11",
+      "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "1",
+      "elOfGoal2": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "1",
+        "tasks": []
+      },
+      "elOfGoal3": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "11",
+        "tasks": []
+      },
+      "elOfGoal4": {
+        "anExampleOfAchievingAGoal": "11",
+        "goalElementDescription": "1",
+        "tasks": []
+      }
+    },
+    {
+      "id": 6,
+      "visibilitylevel": "",
+      "moduleСoverImage": "",
+      "moduleName": "1",
+      "smallPictureForTheList": "",
+      "tags": "",
+      "subject": "Coding",
+      "class": "1p",
+      "additionalModule": "",
+      "laborIntensity": 1,
+      "basicIdea": "1",
+      "problematicQuestion": "1",
+      "instructionsForTheTeacher": "",
+      "moduleСover": "",
+      "generalConceptOfTheModule": "1",
+      "typicalDistributionOfAssignmentsByLessons": "11",
+      "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "1",
+      "elOfGoal2": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "1",
+        "tasks": []
+      },
+      "elOfGoal3": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "11",
+        "tasks": []
+      },
+      "elOfGoal4": {
+        "anExampleOfAchievingAGoal": "11",
+        "goalElementDescription": "1",
+        "tasks": []
+      }
+    },
+    {
+      "id": 7,
+      "visibilitylevel": "",
+      "moduleСoverImage": "",
+      "moduleName": "1",
+      "smallPictureForTheList": "",
+      "tags": "",
+      "subject": "Coding",
+      "class": "1p",
+      "additionalModule": "",
+      "laborIntensity": 1,
+      "basicIdea": "1",
+      "problematicQuestion": "1",
+      "instructionsForTheTeacher": "",
+      "moduleСover": "",
+      "generalConceptOfTheModule": "1",
+      "typicalDistributionOfAssignmentsByLessons": "11",
+      "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "1",
+      "elOfGoal2": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "1",
+        "tasks": []
+      },
+      "elOfGoal3": {
+        "anExampleOfAchievingAGoal": "1",
+        "goalElementDescription": "11",
+        "tasks": []
+      },
+      "elOfGoal4": {
+        "anExampleOfAchievingAGoal": "11",
+        "goalElementDescription": "1",
+        "tasks": []
+      }
+    },
+    {
+      "id": 8,
+      "visibilitylevel": "personal",
+      "moduleСoverImage": "",
+      "moduleName": "123",
+      "smallPictureForTheList": "",
+      "tags": "",
+      "subject": "Coding",
+      "class": "1p",
+      "additionalModule": "",
+      "laborIntensity": 123,
+      "basicIdea": "123",
+      "problematicQuestion": "123",
+      "instructionsForTheTeacher": "",
+      "moduleСover": "",
+      "generalConceptOfTheModule": "13123",
+      "typicalDistributionOfAssignmentsByLessons": "123",
+      "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "123",
+      "elOfGoal2": {
+        "anExampleOfAchievingAGoal": "123",
+        "goalElementDescription": "123",
+        "tasks": []
+      },
+      "elOfGoal3": {
+        "anExampleOfAchievingAGoal": "123",
+        "goalElementDescription": "123",
+        "tasks": []
+      },
+      "elOfGoal4": {
+        "anExampleOfAchievingAGoal": "123",
+        "goalElementDescription": "123123",
+        "tasks": []
+      }
+    }
+  ]
+}

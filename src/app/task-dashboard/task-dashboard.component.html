@@ -1,0 +1,48 @@
+<mat-tab-group mat-align-tabs="center" [selectedIndex]="1">
+  <mat-tab label="Модули">
+    <ng-template mat-tab-label>
+      <mat-icon>category</mat-icon>
+      Модули
+    </ng-template>
+    Пусто :(
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>description</mat-icon>
+      Задания
+    </ng-template>
+    <mat-card class="task-card" *ngFor="let task of tasks">
+      <mat-card-header>
+        <mat-card-title>{{task.task_name}}</mat-card-title>
+        <mat-card-subtitle>{{task.subject}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider [vertical]="true"></mat-divider>
+      <mat-card-content>
+        <p>{{task.grade}} класс</p>
+        <mat-icon>grade</mat-icon><p>{{task.level}}.0</p>
+        <mat-icon>schedule</mat-icon><p>{{task.task_minutes}} мин</p>
+      </mat-card-content>
+      <button mat-raised-button color="primary" routerLink="/tasks/{{task.id}}/edit">Редактировать</button>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>verified-user</mat-icon>
+      Модерация
+    </ng-template>
+    <mat-card class="task-card" *ngFor="let task of tasksForModeration">
+      <mat-card-header>
+        <mat-card-title>{{task.task_name}}</mat-card-title>
+        <mat-card-subtitle>{{task.subject}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider [vertical]="true"></mat-divider>
+      <mat-card-content>
+        <p>{{task.grade}} класс</p>
+        <mat-icon>grade</mat-icon><p>{{task.level}}.0</p>
+        <mat-icon>schedule</mat-icon><p>{{task.task_minutes}} мин</p>
+      </mat-card-content>
+      <button mat-raised-button color="primary" routerLink="/tasks/{{task.id}}/edit">Модерировать</button>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+
