@@ -13,13 +13,14 @@ import { EditModulesComponent } from './edit-modules/edit-modules.component';
 
 const routes: Routes = [
   { path: "", component: MainComponentComponent },
-  { path: "add-task", component: TaskComponent },
+  { path: "add-task/:mId/:lName", component: TaskComponent },
   { path: "add-module", component: AddModuleComponent },
   { path: "autochecker", component: AutocheckerComponent },
   { path: "dashboard", component: TaskDashboardComponent},
   { path: "comments", component: CommentThreadComponent},
   { path: 'tasks/:taskID/edit', component: EditTaskComponent},
-  {path: 'edit-module/:id', component: EditModulesComponent}
+  {path: 'edit-module/:id', component: EditModulesComponent},
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
