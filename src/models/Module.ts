@@ -54,6 +54,7 @@ export class Module {
     generalConceptOfTheModule: string;
     typicalDistributionOfAssignmentsByLessons: string;
     possibleDifficultiesMisconceptionsAndWaysToOvercomeThem: string;
+    motivatingTask: Task;
     elOfGoal2: {
         goalElementDescription: string;
         anExampleOfAchievingAGoal: string;
