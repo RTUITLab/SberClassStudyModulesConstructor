@@ -167,32 +167,6 @@
       "moderation": {
         "expertsUserIds": []
       }
-    },
-    {
-      "task_name": "123132",
-      "task_tags": "123",
-      "task_visibility": "personal",
-      "task_attempts": 3,
-      "task_type": "indiv",
-      "task_minutes": 60,
-      "ch1": false,
-      "ch2": false,
-      "ch3": false,
-      "ch4": false,
-      "ch5": false,
-      "ch6": false,
-      "ch7": false,
-      "task_author": "Цифровой прорыв",
-      "task_license": "CC0",
-      "task_outsource": "",
-      "task_notes_checker": "",
-      "task_notes_teacher": "",
-      "task_notes_student": "",
-      "grade": 9,
-      "subject": "",
-      "level": 4,
-      "description": "вафыва",
-      "id": 3
     }
   ],
   "modules": [
