@@ -100,7 +100,7 @@
   "modules": [
     {
       "id": 1,
-      "visibilitylevel": "",
+      "visibilitylevel": "personal",
       "moduleСoverImage": "",
       "moduleName": "1",
       "smallPictureForTheList": "",
@@ -117,19 +117,16 @@
       "typicalDistributionOfAssignmentsByLessons": "11",
       "possibleDifficultiesMisconceptionsAndWaysToOvercomeThem": "1",
       "elOfGoal2": {
-        "anExampleOfAchievingAGoal": "1",
         "goalElementDescription": "1",
-        "tasks": []
+        "anExampleOfAchievingAGoal": "1"
       },
       "elOfGoal3": {
-        "anExampleOfAchievingAGoal": "1",
         "goalElementDescription": "11",
-        "tasks": []
+        "anExampleOfAchievingAGoal": "1"
       },
       "elOfGoal4": {
-        "anExampleOfAchievingAGoal": "11",
         "goalElementDescription": "1",
-        "tasks": []
+        "anExampleOfAchievingAGoal": "11"
       }
     },
     {

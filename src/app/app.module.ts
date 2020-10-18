@@ -31,10 +31,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { TaskDashboardComponent } from './task-dashboard/task-dashboard.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { EditModulesComponent } from './edit-modules/edit-modules.component';
+import { EditModuleContentComponent } from './edit-modules/edit-module-content/edit-module-content.component';
+import { EditModuleTasksComponent } from './edit-modules/edit-module-tasks/edit-module-tasks.component';
 
 
 
@@ -50,7 +53,10 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     TaskDashboardComponent,
     AddModuleComponent,
     ListModulesComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    EditModulesComponent,
+    EditModuleContentComponent,
+    EditModuleTasksComponent
   ],
   imports: [
     BrowserModule,

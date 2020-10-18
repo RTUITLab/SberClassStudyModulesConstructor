@@ -9,6 +9,7 @@ import { TaskComponent } from './task/task.component';
 import {TaskDashboardComponent} from './task-dashboard/task-dashboard.component';
 import { CommentThreadComponent } from './comment-thread/comment-thread.component';
 import {EditTaskComponent} from './edit-task/edit-task.component';
+import { EditModulesComponent } from './edit-modules/edit-modules.component';
 
 const routes: Routes = [
   { path: "", component: MainComponentComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "dashboard", component: TaskDashboardComponent},
   { path: "comments", component: CommentThreadComponent},
   { path: 'tasks/:taskID/edit', component: EditTaskComponent},
+  {path: 'edit-module/:id', component: EditModulesComponent}
 ];
 
 @NgModule({
