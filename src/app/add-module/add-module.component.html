@@ -295,10 +295,10 @@
         </div>
 
         <div class="buttonsPanel">
-            <button style="justify-self: start;" mat-flat-button color="primary" routerLink="">
+            <button style="justify-self: start;" mat-flat-button color="primary" routerLink="/dashboard">
                 Назад
             </button>
-            
+
             <button *ngIf="this.addModuleForm.valid; else notValidForm" mat-flat-button style="justify-self: end;"
                 color="primary" (click)="SaveModule()">
                 Сохранить
