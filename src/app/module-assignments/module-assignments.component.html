@@ -4,7 +4,7 @@
             <b>{{asgn.title}}</b>
             <div>
                 <span class="user-role">{{asgn.userRole}}</span>
-                <button mat-button *ngIf="(!asgn.isDone && asgn.userRole == currentUser.roleLocalized)">Завершить</button>
+                <button (click)="markDone(asgn)" mat-button *ngIf="(!asgn.isDone && asgn.userRole == currentUser.roleLocalized)">Завершить</button>
                 <span class="done-span" *ngIf="asgn.isDone">Завершено</span>
             </div>
         </mat-card>

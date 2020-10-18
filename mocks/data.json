@@ -39,7 +39,7 @@
       "id": 4,
       "moduleId": 1,
       "userRole": "Главный редактор",
-      "isDone": false,
+      "isDone": "true",
       "title": "Публикация модуля"
     }
   ],
